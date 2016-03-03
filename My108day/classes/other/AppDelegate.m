@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MaTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    MaTabBarController *tabBarVc = [[MaTabBarController alloc]init];
+    
+    
+    
+    
+    
+    
+    self.window.rootViewController = tabBarVc;
+    
+    
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

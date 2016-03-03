@@ -1,0 +1,22 @@
+//
+//  UIImage+rendWithOriginal.m
+//  My108day
+//
+//  Created by apple on 16/3/3.
+//  Copyright © 2016年 apple. All rights reserved.
+//
+
+#import "UIImage+rendWithOriginal.h"
+
+@implementation UIImage (rendWithOriginal)
+
++(UIImage *)imageRenderingModeAlwaysOriginalWithImageName:(NSString *)imageName{
+    
+    UIImage *selImage =[UIImage imageNamed:imageName];
+    
+   return  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    
+}
+
+@end

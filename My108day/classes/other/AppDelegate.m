@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MaTabBarController.h"
+#import "MaNewFeatureViewController.h"
+
+#define MaVersionKey @"version"
 
 @interface AppDelegate ()
 
@@ -20,16 +23,23 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    MaTabBarController *tabBarVc = [[MaTabBarController alloc]init];
+   
     
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults]objectForKey:MaVersionKey];
     
-    
-    
-    
-    
-    self.window.rootViewController = tabBarVc;
-    
-    
+    if ([currentVersion isEqualToString:lastVersion]) {
+        
+        MaTabBarController *tabBarVc = [[MaTabBarController alloc]init];
+        self.window.rootViewController = tabBarVc;
+    }else{
+        MaNewFeatureViewController *newFeature = [[MaNewFeatureViewController alloc]init];
+        self.window.rootViewController = newFeature;
+        
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:MaVersionKey];
+    }
+
+     
     [self.window makeKeyAndVisible];
     
     

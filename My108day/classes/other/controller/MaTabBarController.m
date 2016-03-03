@@ -12,6 +12,7 @@
 #import "MaDiscoverTableViewController.h"
 #import "MaActiveTableViewController.h"
 #import "MaProfileTableViewController.h"
+#import "MaNavigationViewController.h"
 
 @interface MaTabBarController ()
 
@@ -22,6 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setAllChildViewController];
+    
+      }
+
+-(void)setAllChildViewController{
     //创建四个子控制器
     MaHomeTableViewController *home = [[MaHomeTableViewController alloc]init];
     home.view.backgroundColor = [UIColor yellowColor];
@@ -39,13 +45,14 @@
     active.view.backgroundColor = [UIColor grayColor];
     
     [self setOneChildViewControllerWith:active imageName:@"active@2x" selImageName:@"active_h@2x" title:@"活动"];
-   
+    
     //子控制器
     MaProfileTableViewController *profile = [[MaProfileTableViewController alloc]init];
     profile.view.backgroundColor = [UIColor greenColor];
     
     [self setOneChildViewControllerWith:profile imageName:@"mine@2x" selImageName:@"mine_h@2x" title:@"我的"];
-   }
+
+}
 
 
 -(void)setOneChildViewControllerWith:(UITableViewController *)vc imageName:(NSString *)imageName selImageName:(NSString *)selImageName title:(NSString *)title{
@@ -60,9 +67,10 @@
     [dic setValue:[UIColor colorWithRed:71/255.0 green:186/255.0 blue:167/255.0 alpha:1] forKey:NSForegroundColorAttributeName];
     
     [vc.tabBarItem setTitleTextAttributes:dic forState:UIControlStateSelected];
+    MaNavigationViewController *nav = [[MaNavigationViewController alloc]initWithRootViewController:vc];
+
     
-    
-    [self addChildViewController:vc];
+    [self addChildViewController:nav];
     
 }
 

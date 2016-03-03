@@ -8,6 +8,10 @@
 
 #import "MaTabBarController.h"
 #import "UIImage+rendWithOriginal.h"
+#import "MaHomeTableViewController.h"
+#import "MaDiscoverTableViewController.h"
+#import "MaActiveTableViewController.h"
+#import "MaProfileTableViewController.h"
 
 @interface MaTabBarController ()
 
@@ -19,25 +23,25 @@
     [super viewDidLoad];
     
     //创建四个子控制器
-    UITableViewController *home = [[UITableViewController alloc]init];
+    MaHomeTableViewController *home = [[MaHomeTableViewController alloc]init];
     home.view.backgroundColor = [UIColor yellowColor];
     
     [self setOneChildViewControllerWith:home imageName:@"home@2x" selImageName:@"home_h@2x" title:@"首页"];
     
     //子控制器
-    UITableViewController *discover = [[UITableViewController alloc]init];
+    MaDiscoverTableViewController *discover = [[MaDiscoverTableViewController alloc]init];
     discover.view.backgroundColor = [UIColor cyanColor];
     
     [self setOneChildViewControllerWith:discover imageName:@"choiceness@2x" selImageName:@"choiceness_h@2x" title:@"发现"];
     
     //子控制器
-    UITableViewController *active = [[UITableViewController alloc]init];
+    MaActiveTableViewController *active = [[MaActiveTableViewController alloc]init];
     active.view.backgroundColor = [UIColor grayColor];
     
     [self setOneChildViewControllerWith:active imageName:@"active@2x" selImageName:@"active_h@2x" title:@"活动"];
    
     //子控制器
-    UITableViewController *profile = [[UITableViewController alloc]init];
+    MaProfileTableViewController *profile = [[MaProfileTableViewController alloc]init];
     profile.view.backgroundColor = [UIColor greenColor];
     
     [self setOneChildViewControllerWith:profile imageName:@"mine@2x" selImageName:@"mine_h@2x" title:@"我的"];

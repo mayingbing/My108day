@@ -22,6 +22,10 @@
 		1827C98C1C88461F0059C167 /* mine_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1827C9841C88461F0059C167 /* mine_h@2x.png */; };
 		183AC68B1C88282C00093FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183AC68A1C88282C00093FC9 /* Assets.xcassets */; };
 		183AC68E1C88282C00093FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183AC68C1C88282C00093FC9 /* LaunchScreen.storyboard */; };
+		18DB7CAE1C88476F008BFDCE /* MaHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB7CAD1C88476F008BFDCE /* MaHomeTableViewController.m */; };
+		18DB7CB11C88479B008BFDCE /* MaDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB7CB01C88479B008BFDCE /* MaDiscoverTableViewController.m */; };
+		18DB7CB41C8847AF008BFDCE /* MaActiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB7CB31C8847AF008BFDCE /* MaActiveTableViewController.m */; };
+		18DB7CB71C8847BE008BFDCE /* MaProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB7CB61C8847BE008BFDCE /* MaProfileTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +49,14 @@
 		183AC68A1C88282C00093FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183AC68D1C88282C00093FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		183AC68F1C88282C00093FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DB7CAC1C88476F008BFDCE /* MaHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaHomeTableViewController.h; sourceTree = "<group>"; };
+		18DB7CAD1C88476F008BFDCE /* MaHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaHomeTableViewController.m; sourceTree = "<group>"; };
+		18DB7CAF1C88479B008BFDCE /* MaDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaDiscoverTableViewController.h; sourceTree = "<group>"; };
+		18DB7CB01C88479B008BFDCE /* MaDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaDiscoverTableViewController.m; sourceTree = "<group>"; };
+		18DB7CB21C8847AF008BFDCE /* MaActiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaActiveTableViewController.h; sourceTree = "<group>"; };
+		18DB7CB31C8847AF008BFDCE /* MaActiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaActiveTableViewController.m; sourceTree = "<group>"; };
+		18DB7CB51C8847BE008BFDCE /* MaProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaProfileTableViewController.h; sourceTree = "<group>"; };
+		18DB7CB61C8847BE008BFDCE /* MaProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaProfileTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +82,12 @@
 		1827C9681C8845CA0059C167 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				1827C9691C8845CA0059C167 /* active */,
-				1827C96A1C8845CA0059C167 /* discover */,
 				1827C96B1C8845CA0059C167 /* home */,
+				1827C96A1C8845CA0059C167 /* discover */,
+				1827C9691C8845CA0059C167 /* active */,
+				1827C9771C8845CA0059C167 /* profile */,
 				1827C96C1C8845CA0059C167 /* main */,
 				1827C96D1C8845CA0059C167 /* other */,
-				1827C9771C8845CA0059C167 /* profile */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -83,6 +95,8 @@
 		1827C9691C8845CA0059C167 /* active */ = {
 			isa = PBXGroup;
 			children = (
+				18DB7CB21C8847AF008BFDCE /* MaActiveTableViewController.h */,
+				18DB7CB31C8847AF008BFDCE /* MaActiveTableViewController.m */,
 			);
 			path = active;
 			sourceTree = "<group>";
@@ -90,6 +104,8 @@
 		1827C96A1C8845CA0059C167 /* discover */ = {
 			isa = PBXGroup;
 			children = (
+				18DB7CAF1C88479B008BFDCE /* MaDiscoverTableViewController.h */,
+				18DB7CB01C88479B008BFDCE /* MaDiscoverTableViewController.m */,
 			);
 			path = discover;
 			sourceTree = "<group>";
@@ -97,6 +113,8 @@
 		1827C96B1C8845CA0059C167 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				18DB7CAC1C88476F008BFDCE /* MaHomeTableViewController.h */,
+				18DB7CAD1C88476F008BFDCE /* MaHomeTableViewController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -141,6 +159,8 @@
 		1827C9771C8845CA0059C167 /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				18DB7CB51C8847BE008BFDCE /* MaProfileTableViewController.h */,
+				18DB7CB61C8847BE008BFDCE /* MaProfileTableViewController.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -223,6 +243,7 @@
 		183AC6731C88282B00093FC9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Ma;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = apple;
 				TargetAttributes = {
@@ -274,10 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DB7CB41C8847AF008BFDCE /* MaActiveTableViewController.m in Sources */,
+				18DB7CB11C88479B008BFDCE /* MaDiscoverTableViewController.m in Sources */,
 				1827C97A1C8845CA0059C167 /* MaTabBarController.m in Sources */,
 				1827C9781C8845CA0059C167 /* AppDelegate.m in Sources */,
 				1827C97B1C8845CA0059C167 /* main.m in Sources */,
+				18DB7CAE1C88476F008BFDCE /* MaHomeTableViewController.m in Sources */,
 				1827C9791C8845CA0059C167 /* UIImage+rendWithOriginal.m in Sources */,
+				18DB7CB71C8847BE008BFDCE /* MaProfileTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

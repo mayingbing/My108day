@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 #import "MaTabBarController.h"
 #import "MaNewFeatureViewController.h"
+#import "MaOAuthViewController.h"
+#import "MaAccount.h"
+#import "MaAccountTool.h"
+#import "MaChooseRootViewController.h"
 
-#define MaVersionKey @"version"
 
 @interface AppDelegate ()
 
@@ -22,30 +25,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-   
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults]objectForKey:MaVersionKey];
-    
-    
-    
-    
-    
-    
-   
-    //选择是否进入新特性界面
-    if ([currentVersion isEqualToString:lastVersion]) {
-        
-        MaTabBarController *tabBarVc = [[MaTabBarController alloc]init];
-        self.window.rootViewController = tabBarVc;
-    }else{
-        MaNewFeatureViewController *newFeature = [[MaNewFeatureViewController alloc]init];
-        self.window.rootViewController = newFeature;
-        
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:MaVersionKey];
-    }
 
-     
-    [self.window makeKeyAndVisible];
+    MaAccount *account = [MaAccountTool account];
+    
+    if (account) {
+        [MaChooseRootViewController chooseRootViewControllerWithWindow:_window];
+    }else{
+        
+        MaOAuthViewController *oauth = [[MaOAuthViewController alloc]init];
+        self.window.rootViewController = oauth;
+        
+    }
+  
+      [self.window makeKeyAndVisible];
     
     
     return YES;

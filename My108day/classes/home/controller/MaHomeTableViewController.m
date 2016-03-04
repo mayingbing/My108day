@@ -17,6 +17,8 @@
 #import "CZUser.h"
 #import "CZPhoto.h"
 #import "UIImageView+WebCache.h"
+#import "MaHttpTool.h"
+#import "MaDataTool.h"
 
 @interface MaHomeTableViewController ()<UITableViewDataSource>
 
@@ -46,39 +48,82 @@ static NSString *ID = @"cell";
     [btn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
     
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewData)];
+    [self.tableView addFooterWithTarget:self action:@selector(loadMoreData)];
     
     [self.tableView headerBeginRefreshing];
     self.tableView.dataSource = self;
     
 }
+//加载更多新数据
 
 -(void)loadNewData{
-
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    MaAccount *account = [MaAccountTool account];
-    parameters[@"access_token"] = account.access_token;
-
     
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    MaDataTool *data = [[MaDataTool alloc]init];
+    
+    MaAccount *account = [MaAccountTool account];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = account.access_token;
+    
+    if (self.dataArr.count) {
+        long long maxId = [[[self.dataArr firstObject] idstr] longLongValue];
+        parameters[@"since_id"] = [NSString stringWithFormat:@"%lld",maxId];
+    }
+    
+    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(NSArray *objArr) {
         // httpTool请求成功的时候调用，把代码保存起来
         // 结束上拉刷新
         [self.tableView headerEndRefreshing];
-        // 获取到微博数据 转换成模型
-        // 获取微博字典数组
-        NSArray *dictArr = responseObject[@"statuses"];
-        NSArray *objArr = [CZStatus objectArrayWithKeyValuesArray:dictArr];
+        
         NSIndexSet *index = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, objArr.count)];
-       [self.dataArr insertObjects:objArr atIndexes:index];
+        [self.dataArr insertObjects:objArr atIndexes:index];
         
         // 刷新表格
         [self.tableView reloadData];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    
+        
+    } failure:^(NSError *error) {
+        
+        // 结束上拉刷新
+        [self.tableView headerEndRefreshing];
     }];
    
 }
+
+//加载更多旧的数据
+-(void)loadMoreData{
+    
+    MaDataTool *data = [[MaDataTool alloc]init];
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    MaAccount *account = [MaAccountTool account];
+    parameters[@"access_token"] = account.access_token;
+    if (self.dataArr.count) {
+        long long minId = [[[self.dataArr lastObject] idstr] longLongValue] - 1;
+        parameters[@"max_id"] = [NSString stringWithFormat:@"%lld",minId];
+    }
+
+    
+    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(NSArray *objArr) {
+        // httpTool请求成功的时候调用，把代码保存起来
+        // 结束刷新
+        [self.tableView footerEndRefreshing];
+        
+        [self.dataArr addObjectsFromArray:objArr];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        
+    } failure:^(NSError *error) {
+        
+        // 结束刷新
+        [self.tableView footerEndRefreshing];
+    }];
+
+}
+
+
+
 -(void)chooseCity{
     
     MaChooseCityTableViewController *chooseVc = [[MaChooseCityTableViewController alloc]init];

@@ -80,6 +80,9 @@
 		185EA75B1C89C022007247B7 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EA7491C89C022007247B7 /* UIImageView+HighlightedWebCache.m */; };
 		185EA75C1C89C022007247B7 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EA74B1C89C022007247B7 /* UIImageView+WebCache.m */; };
 		185EA75D1C89C022007247B7 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EA74D1C89C022007247B7 /* UIView+WebCacheOperation.m */; };
+		185EA7601C89CA58007247B7 /* MaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EA75F1C89CA58007247B7 /* MaTableViewCell.m */; };
+		185EA7631C89CAC5007247B7 /* MaHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EA7621C89CAC5007247B7 /* MaHttpTool.m */; };
+		185EA7661C89D71D007247B7 /* MaDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EA7651C89D71D007247B7 /* MaDataTool.m */; };
 		186AC2271C892D2800B48012 /* active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186AC1901C892D2800B48012 /* active@2x.png */; };
 		186AC2281C892D2800B48012 /* active_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186AC1911C892D2800B48012 /* active_h@2x.png */; };
 		186AC2291C892D2800B48012 /* active_nav_right_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186AC1921C892D2800B48012 /* active_nav_right_btn@2x.png */; };
@@ -378,6 +381,12 @@
 		185EA74B1C89C022007247B7 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		185EA74C1C89C022007247B7 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		185EA74D1C89C022007247B7 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		185EA75E1C89CA58007247B7 /* MaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaTableViewCell.h; sourceTree = "<group>"; };
+		185EA75F1C89CA58007247B7 /* MaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaTableViewCell.m; sourceTree = "<group>"; };
+		185EA7611C89CAC5007247B7 /* MaHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaHttpTool.h; sourceTree = "<group>"; };
+		185EA7621C89CAC5007247B7 /* MaHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaHttpTool.m; sourceTree = "<group>"; };
+		185EA7641C89D71D007247B7 /* MaDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaDataTool.h; sourceTree = "<group>"; };
+		185EA7651C89D71D007247B7 /* MaDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaDataTool.m; sourceTree = "<group>"; };
 		186AC1901C892D2800B48012 /* active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active@2x.png"; sourceTree = "<group>"; };
 		186AC1911C892D2800B48012 /* active_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_h@2x.png"; sourceTree = "<group>"; };
 		186AC1921C892D2800B48012 /* active_nav_right_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_nav_right_btn@2x.png"; sourceTree = "<group>"; };
@@ -550,11 +559,11 @@
 		18016DB21C896D480042DA06 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				18016DC91C896D480042DA06 /* main */,
 				18016DBF1C896D480042DA06 /* home */,
 				18016DB91C896D480042DA06 /* discover */,
 				18016DB31C896D480042DA06 /* active */,
 				18016DDE1C896D480042DA06 /* profile */,
-				18016DC91C896D480042DA06 /* main */,
 				18016DCD1C896D480042DA06 /* NewFeature */,
 				18016DD51C896D480042DA06 /* oauth */,
 				18016DD91C896D480042DA06 /* other */,
@@ -667,6 +676,8 @@
 			children = (
 				18016DC71C896D480042DA06 /* CZTitleButton.h */,
 				18016DC81C896D480042DA06 /* CZTitleButton.m */,
+				185EA75E1C89CA58007247B7 /* MaTableViewCell.h */,
+				185EA75F1C89CA58007247B7 /* MaTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -989,6 +1000,10 @@
 		185EA7051C8983F1007247B7 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				185EA7611C89CAC5007247B7 /* MaHttpTool.h */,
+				185EA7621C89CAC5007247B7 /* MaHttpTool.m */,
+				185EA7641C89D71D007247B7 /* MaDataTool.h */,
+				185EA7651C89D71D007247B7 /* MaDataTool.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -1466,6 +1481,7 @@
 				185EA6E41C897175007247B7 /* AFURLConnectionOperation.m in Sources */,
 				185EA75A1C89C022007247B7 /* UIImage+WebP.m in Sources */,
 				185EA7201C8990A3007247B7 /* UIScrollView+MJExtension.m in Sources */,
+				185EA7631C89CAC5007247B7 /* MaHttpTool.m in Sources */,
 				185EA7511C89C022007247B7 /* SDWebImageCompat.m in Sources */,
 				185EA71E1C8990A3007247B7 /* MJRefreshFooterView.m in Sources */,
 				185EA6FE1C898255007247B7 /* MJConst.m in Sources */,
@@ -1475,6 +1491,7 @@
 				185EA71C1C8990A3007247B7 /* MJRefreshBaseView.m in Sources */,
 				185EA6E11C897175007247B7 /* AFHTTPSessionManager.m in Sources */,
 				185EA7521C89C022007247B7 /* SDWebImageDecoder.m in Sources */,
+				185EA7601C89CA58007247B7 /* MaTableViewCell.m in Sources */,
 				185EA6ED1C8980F2007247B7 /* MaAccountTool.m in Sources */,
 				185EA75B1C89C022007247B7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				185EA6E21C897175007247B7 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1501,6 +1518,7 @@
 				185EA71F1C8990A3007247B7 /* MJRefreshHeaderView.m in Sources */,
 				185EA6BD1C896EA9007247B7 /* main.m in Sources */,
 				185EA6C71C896EC6007247B7 /* UIBarButtonItem+MaBarButtonItem.m in Sources */,
+				185EA7661C89D71D007247B7 /* MaDataTool.m in Sources */,
 				185EA7041C898255007247B7 /* NSObject+MJKeyValue.m in Sources */,
 				18016DEB1C896D480042DA06 /* MaProfileTableViewController.m in Sources */,
 				185EA6E51C897175007247B7 /* AFURLRequestSerialization.m in Sources */,

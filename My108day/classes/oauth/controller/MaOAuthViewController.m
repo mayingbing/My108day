@@ -11,6 +11,7 @@
 #import "MaAccountTool.h"
 #import "MaAccount.h"
 #import "MaChooseRootViewController.h"
+#import "MaHttpTool.h"
 
 @interface MaOAuthViewController ()<UIWebViewDelegate>
 
@@ -28,7 +29,7 @@
     [self.view addSubview: web];
     
     NSString *baseUrl = @"https://api.weibo.com/oauth2/authorize";
-    NSString *client_id = @"3713969596";
+    NSString *client_id = @"2038160851";
     NSString *redirect_uri = @"http://www.baidu.com";
     
     NSString *urlStr = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@",baseUrl,client_id,redirect_uri];
@@ -65,38 +66,33 @@
 
 - (void)accessTokenWithCode:(NSString *)code{
     
-        AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-        NSString *baseUrl = @"https://api.weibo.com/oauth2/access_token";
-        NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-        parameters[@"client_id"] = @"3713969596";
-        parameters[@"client_secret"] = @"bf30764af6caadc864b79f6521c44859";
-        parameters[@"grant_type"] = @"authorization_code";
-        parameters[@"code"] = code;
-        parameters[@"redirect_uri"] = @"http://www.baidu.com";
-    
-        [mgr POST:baseUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-   
-            // 请求成功的时候调用
-            MaAccount *account = [MaAccount accountWithDict:responseObject];
-            
-            [MaAccountTool saveAccount:account];
-            
-            [MaChooseRootViewController chooseRootViewControllerWithWindow:MAKeyWindow];
-    
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-            
-        }];
+    NSString *baseUrl = @"https://api.weibo.com/oauth2/access_token";
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"client_id"] = @"2038160851";
+    parameters[@"client_secret"] = @"6e7e90bb1d559bb0e3401bfd21ea732f";
+    parameters[@"grant_type"] = @"authorization_code";
+    parameters[@"code"] = code;
+    parameters[@"redirect_uri"] = @"http://www.baidu.com";
 
-}
-/*
-#pragma mark - Navigation
+    
+    MaHttpTool *http = [[MaHttpTool alloc]init];
+    
+    [http POST:baseUrl parameters:parameters success:^(id responseObject) {
+        
+        // 请求成功的时候调用
+        MaAccount *account = [MaAccount accountWithDict:responseObject];
+        
+        [MaAccountTool saveAccount:account];
+        
+        [MaChooseRootViewController chooseRootViewControllerWithWindow:MAKeyWindow];
+        
+ 
+    } failure:^(NSError *error) {
+        MaOAuthViewController *oauth = [[MaOAuthViewController alloc]init];
+        MAKeyWindow.rootViewController = oauth;
+        
+    }];
+ }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

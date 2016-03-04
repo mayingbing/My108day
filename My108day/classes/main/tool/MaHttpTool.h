@@ -10,4 +10,6 @@
 
 @interface MaHttpTool : NSObject
 -(void)GET:(NSString *)urlStr parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure;
+
+-(void)POST:(NSString *)urlStr parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure;
 @end

@@ -22,12 +22,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
    
-    
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults]objectForKey:MaVersionKey];
     
+    
+    
+    
+    
+    
+   
+    //选择是否进入新特性界面
     if ([currentVersion isEqualToString:lastVersion]) {
         
         MaTabBarController *tabBarVc = [[MaTabBarController alloc]init];

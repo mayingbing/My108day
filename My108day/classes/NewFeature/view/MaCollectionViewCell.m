@@ -22,7 +22,7 @@
     if (_btn == nil) {
          UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         _btn = btn;
-        [_btn setBackgroundImage:[UIImage imageNamed:@"personal_login_btn_bg"] forState:UIControlStateNormal];
+        [_btn setBackgroundImage:[UIImage imageNamed:@"personal_login_btn_bg@2x"] forState:UIControlStateNormal];
         [_btn setTitle:@"开始体验" forState:UIControlStateNormal];
         [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_btn setFrame:CGRectMake((self.bounds.size.width-100)*0.5,self.bounds.size.height*0.8, 100, 30)];

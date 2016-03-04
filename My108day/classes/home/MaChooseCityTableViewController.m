@@ -1,40 +1,33 @@
 //
-//  MaHomeTableViewController.m
+//  MaChooseCityTableViewController.m
 //  My108day
 //
-//  Created by apple on 16/3/3.
+//  Created by apple on 16/3/4.
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
-#import "MaHomeTableViewController.h"
 #import "MaChooseCityTableViewController.h"
-#import "CZTitleButton.h"
 
-@interface MaHomeTableViewController ()
+@interface MaChooseCityTableViewController ()
 
 @end
 
-@implementation MaHomeTableViewController
+@implementation MaChooseCityTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CZTitleButton *btn = [CZTitleButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"北京" forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"home_city_location_img@2x"] forState:UIControlStateNormal];
-    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithCustomView:btn];
-    self.navigationItem.leftBarButtonItem = left;
-    [btn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
     
-}
--(void)chooseCity{
-    
-    MaChooseCityTableViewController *chooseVc = [[MaChooseCityTableViewController alloc]init];
-    [self.navigationController pushViewController:chooseVc animated:YES];
-    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 #pragma mark - Table view data source
 

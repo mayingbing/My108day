@@ -11,5 +11,5 @@
 @interface UIImage (rendWithOriginal)
 
 +(UIImage *)imageRenderingModeAlwaysOriginalWithImageName:(NSString *)imageName;
-
++ (instancetype)imageWithStretchableName:(NSString *)imageName;
 @end

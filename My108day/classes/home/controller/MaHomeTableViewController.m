@@ -9,12 +9,31 @@
 #import "MaHomeTableViewController.h"
 #import "MaChooseCityTableViewController.h"
 #import "CZTitleButton.h"
+#import "MJRefresh.h"
+#import "AFNetworking.h"
+#import "MaAccountTool.h"
+#import "MaAccount.h"
+#import "CZStatus.h"
+#import "CZUser.h"
+#import "CZPhoto.h"
+#import "UIImageView+WebCache.h"
 
-@interface MaHomeTableViewController ()
+@interface MaHomeTableViewController ()<UITableViewDataSource>
+
+@property(nonatomic ,strong)NSMutableArray *dataArr;
 
 @end
 
 @implementation MaHomeTableViewController
+
+static NSString *ID = @"cell";
+
+-(NSMutableArray *)dataArr{
+    if (_dataArr == nil) {
+        _dataArr = [NSMutableArray array];
+    }
+    return _dataArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +45,39 @@
     self.navigationItem.leftBarButtonItem = left;
     [btn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.tableView addHeaderWithTarget:self action:@selector(loadNewData)];
+    
+    [self.tableView headerBeginRefreshing];
+    self.tableView.dataSource = self;
+    
+}
+
+-(void)loadNewData{
+
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    MaAccount *account = [MaAccountTool account];
+    parameters[@"access_token"] = account.access_token;
+
+    
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // httpTool请求成功的时候调用，把代码保存起来
+        // 结束上拉刷新
+        [self.tableView headerEndRefreshing];
+        // 获取到微博数据 转换成模型
+        // 获取微博字典数组
+        NSArray *dictArr = responseObject[@"statuses"];
+        NSArray *objArr = [CZStatus objectArrayWithKeyValuesArray:dictArr];
+        NSIndexSet *index = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, objArr.count)];
+       [self.dataArr insertObjects:objArr atIndexes:index];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    
+    }];
+   
 }
 -(void)chooseCity{
     
@@ -34,72 +86,31 @@
     
 }
 
-
-
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return self.dataArr.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    
+    CZStatus *statues = self.dataArr[indexPath.row];
+    
+    cell.textLabel.text = statues.user.name;
+    [cell.imageView sd_setImageWithURL:statues.user.profile_image_url placeholderImage:[UIImage imageNamed:@"topic_placeholder"]];
+    cell.detailTextLabel.text = statues.text;
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

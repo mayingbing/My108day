@@ -238,6 +238,10 @@
 		1875F1FA1C8860D1008963CB /* LaunchImage-2-667h@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1875F1F71C8860D1008963CB /* LaunchImage-2-667h@2x.jpg */; };
 		1875F1FB1C8860D1008963CB /* LaunchImage-3-667h@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1875F1F81C8860D1008963CB /* LaunchImage-3-667h@2x.jpg */; };
 		1875F1FD1C888B3C008963CB /* personal_login_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1875F1FC1C888B3C008963CB /* personal_login_btn_bg@2x.png */; };
+		18919FF71C8A8727001208C9 /* MaOriginalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FF61C8A8727001208C9 /* MaOriginalView.m */; };
+		18919FFA1C8A87CB001208C9 /* MaRetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FF91C8A87CB001208C9 /* MaRetView.m */; };
+		18919FFD1C8A8806001208C9 /* MaToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FFC1C8A8806001208C9 /* MaToolView.m */; };
+		1891A0001C8A960C001208C9 /* MaStatuesFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FFF1C8A960C001208C9 /* MaStatuesFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -542,6 +546,14 @@
 		1875F1F71C8860D1008963CB /* LaunchImage-2-667h@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "LaunchImage-2-667h@2x.jpg"; sourceTree = "<group>"; };
 		1875F1F81C8860D1008963CB /* LaunchImage-3-667h@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "LaunchImage-3-667h@2x.jpg"; sourceTree = "<group>"; };
 		1875F1FC1C888B3C008963CB /* personal_login_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personal_login_btn_bg@2x.png"; sourceTree = "<group>"; };
+		18919FF51C8A8727001208C9 /* MaOriginalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaOriginalView.h; sourceTree = "<group>"; };
+		18919FF61C8A8727001208C9 /* MaOriginalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaOriginalView.m; sourceTree = "<group>"; };
+		18919FF81C8A87CB001208C9 /* MaRetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaRetView.h; sourceTree = "<group>"; };
+		18919FF91C8A87CB001208C9 /* MaRetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaRetView.m; sourceTree = "<group>"; };
+		18919FFB1C8A8806001208C9 /* MaToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaToolView.h; sourceTree = "<group>"; };
+		18919FFC1C8A8806001208C9 /* MaToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaToolView.m; sourceTree = "<group>"; };
+		18919FFE1C8A960C001208C9 /* MaStatuesFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaStatuesFrame.h; sourceTree = "<group>"; };
+		18919FFF1C8A960C001208C9 /* MaStatuesFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaStatuesFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -667,6 +679,8 @@
 				185EA7261C89BC86007247B7 /* CZStatus.m */,
 				185EA7271C89BC86007247B7 /* CZUser.h */,
 				185EA7281C89BC86007247B7 /* CZUser.m */,
+				18919FFE1C8A960C001208C9 /* MaStatuesFrame.h */,
+				18919FFF1C8A960C001208C9 /* MaStatuesFrame.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -678,6 +692,12 @@
 				18016DC81C896D480042DA06 /* CZTitleButton.m */,
 				185EA75E1C89CA58007247B7 /* MaTableViewCell.h */,
 				185EA75F1C89CA58007247B7 /* MaTableViewCell.m */,
+				18919FF51C8A8727001208C9 /* MaOriginalView.h */,
+				18919FF61C8A8727001208C9 /* MaOriginalView.m */,
+				18919FF81C8A87CB001208C9 /* MaRetView.h */,
+				18919FF91C8A87CB001208C9 /* MaRetView.m */,
+				18919FFB1C8A8806001208C9 /* MaToolView.h */,
+				18919FFC1C8A8806001208C9 /* MaToolView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1506,6 +1526,7 @@
 				185EA6B81C896E70007247B7 /* MaTabBarController.m in Sources */,
 				18016DEE1C896DA40042DA06 /* MaOAuthViewController.m in Sources */,
 				185EA7581C89C022007247B7 /* UIImage+GIF.m in Sources */,
+				18919FF71C8A8727001208C9 /* MaOriginalView.m in Sources */,
 				18016DE81C896D480042DA06 /* CZTitleButton.m in Sources */,
 				185EA6E01C897175007247B7 /* AFHTTPRequestOperationManager.m in Sources */,
 				185EA75D1C89C022007247B7 /* UIView+WebCacheOperation.m in Sources */,
@@ -1514,6 +1535,7 @@
 				18016DEA1C896D480042DA06 /* MaCollectionViewCell.m in Sources */,
 				18016DE91C896D480042DA06 /* MaNewFeatureViewController.m in Sources */,
 				185EA7291C89BC86007247B7 /* CZPhoto.m in Sources */,
+				18919FFD1C8A8806001208C9 /* MaToolView.m in Sources */,
 				18016DE41C896D480042DA06 /* MaActiveTableViewController.m in Sources */,
 				185EA71F1C8990A3007247B7 /* MJRefreshHeaderView.m in Sources */,
 				185EA6BD1C896EA9007247B7 /* main.m in Sources */,
@@ -1536,6 +1558,8 @@
 				185EA6C01C896EB8007247B7 /* MaNavigationViewController.m in Sources */,
 				185EA6EA1C897F26007247B7 /* MaAccount.m in Sources */,
 				185EA7031C898255007247B7 /* NSObject+MJIvar.m in Sources */,
+				1891A0001C8A960C001208C9 /* MaStatuesFrame.m in Sources */,
+				18919FFA1C8A87CB001208C9 /* MaRetView.m in Sources */,
 				185EA7081C898434007247B7 /* MaChooseRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

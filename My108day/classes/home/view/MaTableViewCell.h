@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CZStatus;
 
 @interface MaTableViewCell : UITableViewCell
+
+@property(nonatomic ,strong)CZStatus *status;
+
++(MaTableViewCell *)cellWithTableView:(UITableView *)tableView;
 
 @end

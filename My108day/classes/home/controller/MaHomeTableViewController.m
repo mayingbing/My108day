@@ -19,6 +19,7 @@
 #import "UIImageView+WebCache.h"
 #import "MaHttpTool.h"
 #import "MaDataTool.h"
+#import "MaTableViewCell.h"
 
 @interface MaHomeTableViewController ()<UITableViewDataSource>
 
@@ -141,18 +142,13 @@ static NSString *ID = @"cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    MaTableViewCell *cell = [MaTableViewCell cellWithTableView:tableView];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
+
     CZStatus *statues = self.dataArr[indexPath.row];
     
-    cell.textLabel.text = statues.user.name;
-    [cell.imageView sd_setImageWithURL:statues.user.profile_image_url placeholderImage:[UIImage imageNamed:@"topic_placeholder"]];
-    cell.detailTextLabel.text = statues.text;
-    
+    cell.status = statues;
+
     return cell;
 }
 

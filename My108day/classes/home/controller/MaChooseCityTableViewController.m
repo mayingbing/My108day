@@ -7,92 +7,79 @@
 //
 
 #import "MaChooseCityTableViewController.h"
+#import "MaCameraViewController.h"
+
+#import "Masonry.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MaChooseCityTableViewController ()
-
+@property(nonatomic ,weak)UIButton *lightBtn;
 @end
 
 @implementation MaChooseCityTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor grayColor];
+    CGFloat screenWidth = self.view.width;
+    CGFloat screenHeight = self.view.height;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    UIButton *camerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    camerBtn.frame = CGRectMake((screenWidth-100)*0.5, screenHeight*0.4, 100, 35);
+    [self.view addSubview:camerBtn];
+    [camerBtn setTitle:@"扫码二维码" forState:UIControlStateNormal];
+    [camerBtn setBackgroundColor:[UIColor cyanColor]];
+    camerBtn.layer.cornerRadius = 3;
+    camerBtn.layer.masksToBounds = YES;
+    [camerBtn addTarget:self action:@selector(cameraOpen) forControlEvents:UIControlEventTouchUpInside];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIButton *lightBtn = [[UIButton alloc]init];
+    lightBtn.backgroundColor = [UIColor cyanColor];
+    lightBtn.layer.cornerRadius = 3;
+    lightBtn.layer.masksToBounds = YES;
+    _lightBtn = lightBtn;
+    [lightBtn setTitle:@"打开手电筒" forState:UIControlStateNormal];
+    [lightBtn addTarget:self action:@selector(openSystemLight:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:lightBtn];
+    lightBtn.frame = CGRectMake((screenWidth-100)*0.5, screenHeight*0.6, 100, 35);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+-(void)openSystemLight:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    button.selected = !button.selected;
+    if (button.selected) {
+        [self systemLightSwitch:YES];
+        [_lightBtn setTitle:@"关闭手电筒" forState:UIControlStateNormal];
+    } else {
+        [self systemLightSwitch:NO];
+        [_lightBtn setTitle:@"打开手电筒" forState:UIControlStateNormal];
+    }
     
-    // Configure the cell...
+}
+
+-(void)systemLightSwitch:(BOOL)open{
     
-    return cell;
-}
-*/
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if ([device hasTorch]) {
+        [device lockForConfiguration:nil];
+        if (open) {
+            [device setTorchMode:AVCaptureTorchModeOn];
+        } else {
+            [device setTorchMode:AVCaptureTorchModeOff];
+        }
+        [device unlockForConfiguration];
+    }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void)cameraOpen{
+    
+    MaCameraViewController *cameraVc = [[MaCameraViewController alloc]init];
+    
+    [ self.navigationController pushViewController:cameraVc animated:YES];
+    
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

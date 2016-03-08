@@ -30,7 +30,7 @@
 -(void)setAllChildViewController{
     //创建四个子控制器
     MaHomeTableViewController *home = [[MaHomeTableViewController alloc]init];
-    home.view.backgroundColor = [UIColor yellowColor];
+//    home.view.backgroundColor = [UIColor yellowColor];
     
     [self setOneChildViewControllerWith:home imageName:@"home@2x" selImageName:@"home_h@2x" title:@"首页"];
     

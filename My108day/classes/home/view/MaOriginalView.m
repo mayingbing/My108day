@@ -7,6 +7,9 @@
 //
 
 #import "MaOriginalView.h"
+#import "CZStatus.h"
+#import "MaStatuesFrame.h"
+#import "UIImageView+WebCache.h"
 
 @interface MaOriginalView ()
 
@@ -82,5 +85,80 @@
     _textView = textView;
 }
 
+-(void)setStatusF:(MaStatuesFrame *)statusF{
+    
+    _statusF = statusF;
+    
+    [self setData];
+    
+    [self setViewFrame];
+    
+}
+
+-(void)setData{
+    
+    CZStatus *status = _statusF.status;
+    // 头像
+    [_iconView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    
+    // 昵称
+    if (status.user.vip) {
+        _nameView.textColor = [UIColor redColor];
+    }else{
+        _nameView.textColor = [UIColor blackColor];
+    }
+    _nameView.text = status.user.name;
+    _nameView.font = CZNameFont;
+    
+    // vip
+    NSString *imageName = [NSString stringWithFormat:@"common_icon_membership_level%d",status.user.mbrank];
+    UIImage *image = [UIImage imageNamed:imageName];
+    
+    _vipView.image = image;
+    
+    // 时间
+    _timeView.text = status.created_at;
+    _timeView.font = CZTimeFont;
+    
+    // 来源
+    
+    _sourceView.text = status.source;
+    _sourceView.font = CZTimeFont;
+    
+    // 正文
+    _textView.text = status.text;
+    _textView.numberOfLines = 0;
+
+    
+}
+
+-(void)setViewFrame{
+    
+    // 头像
+    _iconView.frame = _statusF.originalIconFrame;
+    
+    // 昵称
+    _nameView.frame = _statusF.originalNameFrame;
+    
+    // vip
+    if (_statusF.status.user.vip) { // 是vip
+        _vipView.hidden = NO;
+        _vipView.frame = _statusF.originalVipFrame;
+    }else{
+        _vipView.hidden = YES;
+    }
+    // 时间
+    _timeView.frame = _statusF.originalTimeFrame;
+    
+    // 来源
+    _sourceView.frame = _statusF.originalSourceFrame;
+    
+    // 正文
+    _textView.frame = _statusF.originalTextFrame;
+    
+    
+
+    
+}
 
 @end

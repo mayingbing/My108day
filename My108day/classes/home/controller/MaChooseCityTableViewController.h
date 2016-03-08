@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MaChooseCityTableViewController : UITableViewController
+@interface MaChooseCityTableViewController : UIViewController
 
 @end

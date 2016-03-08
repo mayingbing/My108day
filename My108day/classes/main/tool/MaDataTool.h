@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface MaDataTool : NSObject
--(void)GET:(NSString *)urlStr parameters:(id)parameters success:(void(^)(NSArray *objArr))success failure:(void(^)(NSError *error))failure;
+
+
+-(void)GET:(NSString *)urlStr  WithID:(id)ID  parameters:(id)parameters success:(void(^)(NSArray *objArr))success failure:(void(^)(NSError *error))failure;
+
 @end

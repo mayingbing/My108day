@@ -10,6 +10,7 @@
 #import "MaOriginalView.h"
 #import "MaRetView.h"
 #import "MaToolView.h"
+#import "MaStatuesFrame.h"
 
 @interface MaTableViewCell ()
 
@@ -21,14 +22,16 @@
 
 @implementation MaTableViewCell
 
-+(MaTableViewCell *)cellWithTableView:(UITableView *)tableView{
++(instancetype )cellWithTableView:(UITableView *)tableView{
     
     static NSString *ID = @"cell";
     
-   MaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    id cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (cell == nil) {
-        cell = [[MaTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[self alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        
+
     }
     
     
@@ -43,6 +46,7 @@
         
         // 添加所有子控件
         [self setUpAllChildView];
+        self.backgroundColor = [UIColor clearColor];
         
     }
     
@@ -68,11 +72,23 @@
     _toolBar = toolBar;
 }
 
--(void)setStatus:(CZStatus *)status{
+-(void)setStatusF:(MaStatuesFrame *)statusF{
     
-    _status = status;
+    _statusF = statusF;
+    
+    // 设置原创微博frame
+    _originalView.frame = statusF.originalViewFrame;
+    _originalView.statusF = statusF;
     
     
+    // 设置原创微博frame
+    _retweetView.frame = statusF.retweetViewFrame;
+    _retweetView.statusF = statusF;
+   
+    // 设置工具条frame
+    _toolBar.frame = statusF.toolBarFrame;
+    
+
     
 }
 

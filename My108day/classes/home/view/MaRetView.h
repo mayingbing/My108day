@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MaStatuesFrame;
 @interface MaRetView : UIView
-
+@property(nonatomic ,strong)MaStatuesFrame *statusF;
 @end

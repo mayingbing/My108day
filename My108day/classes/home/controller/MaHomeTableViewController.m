@@ -20,10 +20,11 @@
 #import "MaHttpTool.h"
 #import "MaDataTool.h"
 #import "MaTableViewCell.h"
+#import "MaStatuesFrame.h"
 
 @interface MaHomeTableViewController ()<UITableViewDataSource>
 
-@property(nonatomic ,strong)NSMutableArray *dataArr;
+@property(nonatomic ,strong)NSMutableArray *statuesFrameDataArr;
 
 @end
 
@@ -31,18 +32,18 @@
 
 static NSString *ID = @"cell";
 
--(NSMutableArray *)dataArr{
-    if (_dataArr == nil) {
-        _dataArr = [NSMutableArray array];
+-(NSMutableArray *)statuesFrameDataArr{
+    if (_statuesFrameDataArr == nil) {
+        _statuesFrameDataArr = [NSMutableArray array];
     }
-    return _dataArr;
+    return _statuesFrameDataArr;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     CZTitleButton *btn = [CZTitleButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"北京" forState:UIControlStateNormal];
+    [btn setTitle:@"个人助手" forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"home_city_location_img@2x"] forState:UIControlStateNormal];
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.leftBarButtonItem = left;
@@ -55,6 +56,9 @@ static NSString *ID = @"cell";
     self.tableView.dataSource = self;
     
 }
+
+
+
 //加载更多新数据
 
 -(void)loadNewData{
@@ -64,19 +68,23 @@ static NSString *ID = @"cell";
     MaAccount *account = [MaAccountTool account];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
-    
-    if (self.dataArr.count) {
-        long long maxId = [[[self.dataArr firstObject] idstr] longLongValue];
-        parameters[@"since_id"] = [NSString stringWithFormat:@"%lld",maxId];
+    id sinceID = nil;
+    if (self.statuesFrameDataArr.count) {
+        
+        sinceID = [[self.statuesFrameDataArr firstObject] status].idstr;
     }
     
-    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(NSArray *objArr) {
+    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json"  WithID:(id)sinceID  parameters:parameters success:^(NSArray *statuesFArr) {
         // httpTool请求成功的时候调用，把代码保存起来
         // 结束上拉刷新
         [self.tableView headerEndRefreshing];
         
-        NSIndexSet *index = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, objArr.count)];
-        [self.dataArr insertObjects:objArr atIndexes:index];
+        
+//        // 展示最新的微博数
+//        [self showNewStatusCount:statuesFArr.count];
+        
+        NSIndexSet *index = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuesFArr.count)];
+        [self.statuesFrameDataArr insertObjects:statuesFArr atIndexes:index];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -90,6 +98,13 @@ static NSString *ID = @"cell";
    
 }
 
+-(void)showNewStatusCount:(int)count{
+    
+    
+    
+    
+}
+
 //加载更多旧的数据
 -(void)loadMoreData{
     
@@ -98,29 +113,32 @@ static NSString *ID = @"cell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     MaAccount *account = [MaAccountTool account];
     parameters[@"access_token"] = account.access_token;
-    if (self.dataArr.count) {
-        long long minId = [[[self.dataArr lastObject] idstr] longLongValue] - 1;
-        parameters[@"max_id"] = [NSString stringWithFormat:@"%lld",minId];
+    id maxID = nil;
+    if (self.statuesFrameDataArr.count) {
+        
+        maxID= @([[[self.statuesFrameDataArr lastObject] status].idstr longLongValue]-1);
+        
     }
 
-    
-    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(NSArray *objArr) {
+    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" WithID:maxID parameters:parameters success:^(NSArray *objArr) {
         // httpTool请求成功的时候调用，把代码保存起来
         // 结束刷新
         [self.tableView footerEndRefreshing];
         
-        [self.dataArr addObjectsFromArray:objArr];
+  
+        [self.statuesFrameDataArr addObjectsFromArray:objArr];
         
         // 刷新表格
         [self.tableView reloadData];
-        
+
         
     } failure:^(NSError *error) {
         
         // 结束刷新
         [self.tableView footerEndRefreshing];
     }];
-
+   
+    
 }
 
 
@@ -136,7 +154,7 @@ static NSString *ID = @"cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.dataArr.count;
+    return self.statuesFrameDataArr.count;
 }
 
 
@@ -145,13 +163,20 @@ static NSString *ID = @"cell";
     MaTableViewCell *cell = [MaTableViewCell cellWithTableView:tableView];
     
 
-    CZStatus *statues = self.dataArr[indexPath.row];
+    MaStatuesFrame *statuesF = self.statuesFrameDataArr[indexPath.row];
     
-    cell.status = statues;
+    
+    cell.statusF = statuesF;
 
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MaStatuesFrame *statusF = self.statuesFrameDataArr[indexPath.row];
+    return statusF.cellHeight;
+    
+}
 
 
 @end

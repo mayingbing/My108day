@@ -9,12 +9,15 @@
 #import "UIBarButtonItem+MaBarButtonItem.h"
 
 @implementation UIBarButtonItem (MaBarButtonItem)
-+ (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)image highImage:(UIImage *)highImage target:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
++ (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)image highImage:(UIImage *)highImage target:(id)target action:(SEL)action title:(NSString *)title forControlEvents:(UIControlEvents)controlEvents
 {
     // btn
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setBackgroundImage:image forState:UIControlStateNormal];
-    [btn setBackgroundImage:highImage forState:UIControlStateHighlighted];
+    [btn setImage:image forState:UIControlStateNormal];
+    [btn setImage:highImage forState:UIControlStateHighlighted];
+   
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn sizeToFit];
     
     [btn addTarget:target action:action forControlEvents:controlEvents];

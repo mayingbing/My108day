@@ -26,6 +26,7 @@
 
 @property(nonatomic ,strong)NSMutableArray *statuesFrameDataArr;
 
+
 @end
 
 @implementation MaHomeTableViewController
@@ -43,10 +44,14 @@ static NSString *ID = @"cell";
     [super viewDidLoad];
     
     CZTitleButton *btn = [CZTitleButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"个人助手" forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"home_city_location_img@2x"] forState:UIControlStateNormal];
+   
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.leftBarButtonItem = left;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    [btn setTitle:@"个人助手" forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"home_city_location_img@2x"] forState:UIControlStateNormal];
+    
     [btn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
     
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewData)];
@@ -61,27 +66,18 @@ static NSString *ID = @"cell";
 
 //加载更多新数据
 
--(void)loadNewData{
+-(void)loadNewData
+{
     
     MaDataTool *data = [[MaDataTool alloc]init];
-    
-    MaAccount *account = [MaAccountTool account];
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = account.access_token;
     id sinceID = nil;
     if (self.statuesFrameDataArr.count) {
         
         sinceID = [[self.statuesFrameDataArr firstObject] status].idstr;
     }
     
-    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json"  WithID:(id)sinceID  parameters:parameters success:^(NSArray *statuesFArr) {
+    [data GETNewData:@"https://api.weibo.com/2/statuses/friends_timeline.json"  WithID:sinceID success:^(NSArray *statuesFArr) {
         // httpTool请求成功的时候调用，把代码保存起来
-        // 结束上拉刷新
-        [self.tableView headerEndRefreshing];
-        
-        
-//        // 展示最新的微博数
-//        [self showNewStatusCount:statuesFArr.count];
         
         NSIndexSet *index = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuesFArr.count)];
         [self.statuesFrameDataArr insertObjects:statuesFArr atIndexes:index];
@@ -89,59 +85,56 @@ static NSString *ID = @"cell";
         // 刷新表格
         [self.tableView reloadData];
         
+    } failure:^(NSArray *statusF) {
         
-    } failure:^(NSError *error) {
-        
-        // 结束上拉刷新
-        [self.tableView headerEndRefreshing];
+        if (!self.statuesFrameDataArr.count){
+            
+            [self.statuesFrameDataArr addObjectsFromArray:statusF];
+            
+            // 刷新表格
+            [self.tableView reloadData];
+        }
     }];
-   
-}
-
--(void)showNewStatusCount:(int)count{
-    
-    
-    
+    // 结束上拉刷新
+    [self.tableView headerEndRefreshing];
     
 }
 
-//加载更多旧的数据
--(void)loadMoreData{
+ //加载更多旧的数据
+-(void)loadMoreData
+{
     
     MaDataTool *data = [[MaDataTool alloc]init];
     
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    MaAccount *account = [MaAccountTool account];
-    parameters[@"access_token"] = account.access_token;
     id maxID = nil;
     if (self.statuesFrameDataArr.count) {
         
         maxID= @([[[self.statuesFrameDataArr lastObject] status].idstr longLongValue]-1);
         
     }
-
-    [data GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" WithID:maxID parameters:parameters success:^(NSArray *objArr) {
+    
+    [data GETMoreData:@"https://api.weibo.com/2/statuses/friends_timeline.json" WithID:maxID success:^(NSArray *statuesFArr) {
         // httpTool请求成功的时候调用，把代码保存起来
-        // 结束刷新
-        [self.tableView footerEndRefreshing];
         
-  
-        [self.statuesFrameDataArr addObjectsFromArray:objArr];
+        [self.statuesFrameDataArr addObjectsFromArray:statuesFArr];
         
         // 刷新表格
         [self.tableView reloadData];
-
         
-    } failure:^(NSError *error) {
         
-        // 结束刷新
-        [self.tableView footerEndRefreshing];
+    } failure:^(NSMutableArray *statusF) {
+        if (!self.statuesFrameDataArr.count) {
+            
+            [self.statuesFrameDataArr addObjectsFromArray:statusF];
+            
+            // 刷新表格
+            [self.tableView reloadData];
+        }
+        
     }];
-   
-    
+    // 结束上拉刷新
+    [self.tableView footerEndRefreshing];
 }
-
-
 
 -(void)chooseCity{
     

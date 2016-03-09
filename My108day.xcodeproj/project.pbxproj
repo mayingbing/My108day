@@ -255,6 +255,8 @@
 		18919FFA1C8A87CB001208C9 /* MaRetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FF91C8A87CB001208C9 /* MaRetView.m */; };
 		18919FFD1C8A8806001208C9 /* MaToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FFC1C8A8806001208C9 /* MaToolView.m */; };
 		1891A0001C8A960C001208C9 /* MaStatuesFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FFF1C8A960C001208C9 /* MaStatuesFrame.m */; };
+		18F3ABDC1C90052C00EEC043 /* MaClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3ABDB1C90052C00EEC043 /* MaClearCache.m */; };
+		18F3ABE21C900F5900EEC043 /* MaMyCamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3ABE11C900F5900EEC043 /* MaMyCamer.m */; };
 		18F871A51C8EA90B0092E09C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F8719B1C8EA90B0092E09C /* FMDatabase.m */; };
 		18F871A61C8EA90B0092E09C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F8719D1C8EA90B0092E09C /* FMDatabaseAdditions.m */; };
 		18F871A71C8EA90B0092E09C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F8719F1C8EA90B0092E09C /* FMDatabasePool.m */; };
@@ -616,6 +618,10 @@
 		18919FFC1C8A8806001208C9 /* MaToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaToolView.m; sourceTree = "<group>"; };
 		18919FFE1C8A960C001208C9 /* MaStatuesFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaStatuesFrame.h; sourceTree = "<group>"; };
 		18919FFF1C8A960C001208C9 /* MaStatuesFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaStatuesFrame.m; sourceTree = "<group>"; };
+		18F3ABDA1C90052C00EEC043 /* MaClearCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaClearCache.h; sourceTree = "<group>"; };
+		18F3ABDB1C90052C00EEC043 /* MaClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaClearCache.m; sourceTree = "<group>"; };
+		18F3ABE01C900F5900EEC043 /* MaMyCamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaMyCamer.h; sourceTree = "<group>"; };
+		18F3ABE11C900F5900EEC043 /* MaMyCamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaMyCamer.m; sourceTree = "<group>"; };
 		18F8719A1C8EA90B0092E09C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		18F8719B1C8EA90B0092E09C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		18F8719C1C8EA90B0092E09C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -770,6 +776,8 @@
 				18591C341C8E9C3B00D35DE5 /* MaCameraViewController.m */,
 				18591C361C8E9FB300D35DE5 /* ScanBackgroundView.h */,
 				18591C371C8E9FB300D35DE5 /* ScanBackgroundView.m */,
+				18F3ABE01C900F5900EEC043 /* MaMyCamer.h */,
+				18F3ABE11C900F5900EEC043 /* MaMyCamer.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1170,6 +1178,8 @@
 				185EA7621C89CAC5007247B7 /* MaHttpTool.m */,
 				185EA7641C89D71D007247B7 /* MaDataTool.h */,
 				185EA7651C89D71D007247B7 /* MaDataTool.m */,
+				18F3ABDA1C90052C00EEC043 /* MaClearCache.h */,
+				18F3ABDB1C90052C00EEC043 /* MaClearCache.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -1783,8 +1793,10 @@
 				185EA6E61C897175007247B7 /* AFURLResponseSerialization.m in Sources */,
 				18591C541C8EA0E900D35DE5 /* MASLayoutConstraint.m in Sources */,
 				185EA7531C89C022007247B7 /* SDWebImageDownloader.m in Sources */,
+				18F3ABE21C900F5900EEC043 /* MaMyCamer.m in Sources */,
 				185EA6C01C896EB8007247B7 /* MaNavigationViewController.m in Sources */,
 				185EA6EA1C897F26007247B7 /* MaAccount.m in Sources */,
+				18F3ABDC1C90052C00EEC043 /* MaClearCache.m in Sources */,
 				185EA7031C898255007247B7 /* NSObject+MJIvar.m in Sources */,
 				1891A0001C8A960C001208C9 /* MaStatuesFrame.m in Sources */,
 				18919FFA1C8A87CB001208C9 /* MaRetView.m in Sources */,

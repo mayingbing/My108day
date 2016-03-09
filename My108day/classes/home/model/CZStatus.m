@@ -35,7 +35,7 @@
             // 计算跟当前时间差距
             NSDateComponents *cmp = [created_at deltaWithNow];
             
-            NSLog(@"%ld--%ld--%ld",cmp.hour,cmp.minute,cmp.second);
+        
             
             if (cmp.hour >= 1) {
                 return [NSString stringWithFormat:@"%ld小时之前",cmp.hour];

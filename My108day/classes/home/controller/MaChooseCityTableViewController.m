@@ -11,6 +11,10 @@
 
 #import "Masonry.h"
 #import <AVFoundation/AVFoundation.h>
+#import "MaClearCache.h"
+#import "UIImageView+WebCache.h"
+#import "MaMyCamer.h"
+
 
 @interface MaChooseCityTableViewController ()
 @property(nonatomic ,weak)UIButton *lightBtn;
@@ -23,6 +27,18 @@
     self.view.backgroundColor = [UIColor grayColor];
     CGFloat screenWidth = self.view.width;
     CGFloat screenHeight = self.view.height;
+    
+    UIButton *carmeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    carmeBtn.backgroundColor = [UIColor cyanColor];
+    carmeBtn.layer.cornerRadius = 3;
+    carmeBtn.layer.masksToBounds = YES;
+    [carmeBtn setTitle:@"我的相机" forState:UIControlStateNormal];
+    
+    [carmeBtn addTarget:self action:@selector(openCarmer:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:carmeBtn];
+    carmeBtn.frame = CGRectMake((screenWidth-100)*0.5, screenHeight*0.2, 100, 35);
+    
+    
     
     UIButton *camerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     camerBtn.frame = CGRectMake((screenWidth-100)*0.5, screenHeight*0.4, 100, 35);
@@ -42,6 +58,35 @@
     [lightBtn addTarget:self action:@selector(openSystemLight:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:lightBtn];
     lightBtn.frame = CGRectMake((screenWidth-100)*0.5, screenHeight*0.6, 100, 35);
+    
+    
+    
+    UIButton *clearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    clearBtn.backgroundColor = [UIColor cyanColor];
+    clearBtn.layer.cornerRadius = 3;
+    clearBtn.layer.masksToBounds = YES;
+    [clearBtn setTitle:@"清理缓存" forState:UIControlStateNormal];
+    [clearBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [clearBtn addTarget:self action:@selector(clearCache:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:clearBtn];
+    clearBtn.frame = CGRectMake((screenWidth-100)*0.5, screenHeight*0.8, 100, 35);
+
+}
+
+-(void)openCarmer:(id)sender{
+    
+    MaMyCamer *myCamerVc = [[MaMyCamer alloc]init];
+    myCamerVc.view.backgroundColor = [UIColor grayColor];
+    [self.navigationController pushViewController:myCamerVc animated:YES];
+    
+}
+
+
+-(void)clearCache:(id)sender{
+    
+    
+    [MaClearCache clearCache];
+    
 }
 
 -(void)openSystemLight:(id)sender {

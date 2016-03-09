@@ -17,7 +17,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
+       
        
     }
     
@@ -26,15 +26,16 @@
 
 - (void)layoutSubviews
 {
-    [super layoutSubviews];
+     [super layoutSubviews];
     
     if (self.currentImage == nil) return;
     
+
     // title
-    self.titleLabel.x = self.imageView.x;
-    
+    self.titleLabel.x = 5;
     // image
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+    self.imageView.x = 77;
+
 }
 
 // 重写setTitle方法，扩展计算尺寸功能

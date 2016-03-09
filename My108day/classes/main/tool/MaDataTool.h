@@ -11,6 +11,7 @@
 @interface MaDataTool : NSObject
 
 
--(void)GET:(NSString *)urlStr  WithID:(id)ID  parameters:(id)parameters success:(void(^)(NSArray *objArr))success failure:(void(^)(NSError *error))failure;
+-(void)GETMoreData:(NSString *)urlStr WithID:(id)ID  success:(void (^)(NSArray *))success failure:(void (^)(NSMutableArray *))failure;
 
+-(void)GETNewData:(NSString *)urlStr WithID:(id)ID  success:(void (^)(NSArray *))success failure:(void (^)(NSArray *))failure;
 @end

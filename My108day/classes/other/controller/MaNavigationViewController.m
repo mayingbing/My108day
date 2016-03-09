@@ -40,7 +40,8 @@
         viewController.hidesBottomBarWhenPushed = YES;
         
         
-        UIBarButtonItem *left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navi_expend"] highImage:[UIImage imageNamed:@"navi_expend"] target:self action:@selector(backPre) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *left = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navi_expend"] highImage:[UIImage imageNamed:@"navi_expend"] target:self action:@selector(backPre) title:@"返回" forControlEvents:UIControlEventTouchUpInside];
+        
         viewController.navigationItem.leftBarButtonItem = left;
         
     }

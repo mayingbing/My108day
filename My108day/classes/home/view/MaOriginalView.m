@@ -121,8 +121,9 @@
     _timeView.font = CZTimeFont;
     
     // 来源
-    
-    _sourceView.text = status.source;
+    NSString *source =[self handleStringWithString:status.source];
+    _sourceView.text = [NSString stringWithFormat:@"来自%@",source];
+
     _sourceView.font = CZTimeFont;
     
     // 正文
@@ -130,6 +131,24 @@
     _textView.numberOfLines = 0;
 
     
+}
+//截取字符串
+-(NSString *)handleStringWithString:(NSString *)str{
+    
+    NSMutableString * muStr = [NSMutableString stringWithString:str];
+    while (1) {
+        NSRange range = [muStr rangeOfString:@"<"];
+        NSRange range1 = [muStr rangeOfString:@">"];
+        if (range.location != NSNotFound) {
+            NSInteger loc = range.location;
+            NSInteger len = range1.location - range.location;
+            [muStr deleteCharactersInRange:NSMakeRange(loc, len + 1)];
+        }else{
+            break;
+        }
+    }
+    
+    return muStr;
 }
 
 -(void)setViewFrame{

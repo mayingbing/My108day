@@ -13,18 +13,17 @@
 #define IWStatusFile NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]
 
 @implementation MaClearCache
-+(float)fileSizeAtPath{
+
+
+-(void)clearCache{
     NSFileManager *fileManager=[NSFileManager defaultManager];
+    CGFloat fileSize = 0;
     if([fileManager fileExistsAtPath:IWStatusFile]){
         long long size=[fileManager attributesOfItemAtPath:IWStatusFile error:nil].fileSize;
-        return size/1024.0/1024.0;
+        fileSize = size/1024.0;
+        
     }
-    return 0;
-}
-
-
-+(void)clearCache{
-    NSFileManager *fileManager=[NSFileManager defaultManager];
+    
     if ([fileManager fileExistsAtPath:IWStatusFile]) {
         NSArray *childerFiles=[fileManager subpathsAtPath:IWStatusFile];
         for (NSString *fileName in childerFiles) {
@@ -37,5 +36,17 @@
         }
     }
     [[SDImageCache sharedImageCache] cleanDisk];
+    
+    //解析结果
+    //缓存文件大小
+   
+    
+    
+    
+    if (self.sucessClearBlock) {
+        self.sucessClearBlock(fileSize);
+
+    }
+
 }
 @end

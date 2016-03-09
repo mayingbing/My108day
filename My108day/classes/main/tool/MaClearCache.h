@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface MaClearCache : NSObject
-+(float)fileSizeAtPath;
-+(void)clearCache;
+
+@property (copy, nonatomic) void(^sucessClearBlock)(CGFloat fileSize);
+
+
+-(void)clearCache;
 @end

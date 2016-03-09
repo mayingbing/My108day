@@ -50,7 +50,7 @@ static FMDatabase *_db;
         NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
         BOOL success =[_db executeUpdate:@"insert into t_status (idstr,access_token,dict) values(?,?,?)",dict[@"idstr"],accessToken,data];
         if (success) {
-            NSLog(@"插入成功");
+//            NSLog(@"插入成功");
         }else{
             NSLog(@"插入失败");
         }

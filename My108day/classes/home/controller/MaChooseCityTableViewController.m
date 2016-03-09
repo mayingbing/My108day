@@ -86,12 +86,26 @@
 }
 
 
--(void)clearCache:(id)sender{
-    
-    
-    [MaClearCache clearCache];
-    
+-(void)clearCache:(id)sender
+{
+    MaClearCache *cacheViewController = [[MaClearCache alloc]init];
+    cacheViewController.sucessClearBlock = ^(CGFloat fileSize) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"本次清理垃圾" message:[NSString stringWithFormat:@"%gK",fileSize] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            }];
+            [alertController addAction:okAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+            
+            
+        });
+    };
+    [cacheViewController clearCache];
+
 }
+
 
 -(void)openSystemLight:(id)sender {
     UIButton *button = (UIButton *)sender;

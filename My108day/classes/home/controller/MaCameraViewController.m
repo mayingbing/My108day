@@ -173,6 +173,7 @@
     //停止扫描
     [self.videoPreviewLayer.session stopRunning];
     [self scanLineStopAction];
+
     
     //震动反馈
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);

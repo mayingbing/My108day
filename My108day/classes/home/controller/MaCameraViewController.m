@@ -45,10 +45,7 @@
     [self scanLineStopAction];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 -(void)configureViews {
     CGFloat width = kScreen_Width*2/3;

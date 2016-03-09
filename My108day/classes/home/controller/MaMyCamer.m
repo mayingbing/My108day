@@ -7,31 +7,46 @@
 //
 
 #import "MaMyCamer.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MaMyCamer ()
-
+@property (strong, nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @end
 
 @implementation MaMyCamer
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self configureViews];
 }
 
-/*
-#pragma mark - Navigation
+-(void)configureViews{
+    
+    if (!_videoPreviewLayer) {
+        NSError *err;
+        AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&err];
+        
+        if (!input) {
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+        } else {
+            AVCaptureSession *captureSession = [AVCaptureSession new];
+            [captureSession addInput:input];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+            _videoPreviewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
+            [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+            [_videoPreviewLayer setFrame:self.view.bounds];
+        }
+    }
+    
+    [self.view.layer addSublayer:_videoPreviewLayer];
+    [_videoPreviewLayer.session startRunning];
 }
-*/
 
 @end

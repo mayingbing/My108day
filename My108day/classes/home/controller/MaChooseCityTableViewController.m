@@ -76,7 +76,7 @@
 -(void)openCarmer:(id)sender{
     
     MaMyCamer *myCamerVc = [[MaMyCamer alloc]init];
-    myCamerVc.view.backgroundColor = [UIColor grayColor];
+    
     [self.navigationController pushViewController:myCamerVc animated:YES];
     
 }

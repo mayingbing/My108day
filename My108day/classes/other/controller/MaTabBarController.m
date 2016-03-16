@@ -35,10 +35,10 @@
     [self setOneChildViewControllerWith:home imageName:@"home@2x" selImageName:@"home_h@2x" title:@"首页"];
     
     //子控制器
-    MaDiscoverTableViewController *discover = [[MaDiscoverTableViewController alloc]init];
+    MaDiscoverViewController *discover = [[MaDiscoverViewController alloc]init];
     discover.view.backgroundColor = [UIColor cyanColor];
     
-    [self setOneChildViewControllerWith:discover imageName:@"choiceness@2x" selImageName:@"choiceness_h@2x" title:@"发现"];
+    [self setOneChildViewControllerWith:discover imageName:@"choiceness@2x" selImageName:@"choiceness_h@2x" title:@"简历"];
     
     //子控制器
     MaActiveTableViewController *active = [[MaActiveTableViewController alloc]init];
@@ -55,7 +55,7 @@
 }
 
 
--(void)setOneChildViewControllerWith:(UITableViewController *)vc imageName:(NSString *)imageName selImageName:(NSString *)selImageName title:(NSString *)title{
+-(void)setOneChildViewControllerWith:(UIViewController *)vc imageName:(NSString *)imageName selImageName:(NSString *)selImageName title:(NSString *)title{
     
     vc.tabBarItem.image = [UIImage imageNamed:imageName];
     

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MaDiscoverTableViewController : UITableViewController
+@interface MaDiscoverViewController : UIViewController
 
 @end

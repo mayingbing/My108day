@@ -261,6 +261,13 @@
 		18919FFA1C8A87CB001208C9 /* MaRetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FF91C8A87CB001208C9 /* MaRetView.m */; };
 		18919FFD1C8A8806001208C9 /* MaToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FFC1C8A8806001208C9 /* MaToolView.m */; };
 		1891A0001C8A960C001208C9 /* MaStatuesFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 18919FFF1C8A960C001208C9 /* MaStatuesFrame.m */; };
+		18B9C0971C98251C00D9892E /* MASlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C0921C98251C00D9892E /* MASlipView.m */; };
+		18B9C0981C98251C00D9892E /* EFAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C0941C98251C00D9892E /* EFAnimationViewController.m */; };
+		18B9C0A31C98266B00D9892E /* MAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C09A1C98266B00D9892E /* MAProfileViewController.m */; };
+		18B9C0A41C98266B00D9892E /* MATwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C09C1C98266B00D9892E /* MATwoViewController.m */; };
+		18B9C0A51C98266B00D9892E /* MAThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C09E1C98266B00D9892E /* MAThreeViewController.m */; };
+		18B9C0A61C98266B00D9892E /* MAFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C0A01C98266B00D9892E /* MAFourViewController.m */; };
+		18B9C0A71C98266B00D9892E /* MAFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C0A21C98266B00D9892E /* MAFiveViewController.m */; };
 		18F3ABDC1C90052C00EEC043 /* MaClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3ABDB1C90052C00EEC043 /* MaClearCache.m */; };
 		18F3ABE21C900F5900EEC043 /* MaMyCamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3ABE11C900F5900EEC043 /* MaMyCamer.m */; };
 		18F871A51C8EA90B0092E09C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F8719B1C8EA90B0092E09C /* FMDatabase.m */; };
@@ -282,6 +289,7 @@
 		18F871CD1C8EAB520092E09C /* IWStatusCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F871CC1C8EAB520092E09C /* IWStatusCacheTool.m */; };
 		18F871D01C8EB0360092E09C /* MaParames.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F871CF1C8EB0360092E09C /* MaParames.m */; };
 		18F871D21C8EB16B0092E09C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F871D11C8EB16B0092E09C /* libsqlite3.0.tbd */; };
+		40BFC0A34206E93B6F541EEF /* libPods-My108day.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF7EBF7EE92450D287E2F2 /* libPods-My108day.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -630,6 +638,20 @@
 		18919FFC1C8A8806001208C9 /* MaToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaToolView.m; sourceTree = "<group>"; };
 		18919FFE1C8A960C001208C9 /* MaStatuesFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaStatuesFrame.h; sourceTree = "<group>"; };
 		18919FFF1C8A960C001208C9 /* MaStatuesFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaStatuesFrame.m; sourceTree = "<group>"; };
+		18B9C0911C98251C00D9892E /* MASlipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASlipView.h; sourceTree = "<group>"; };
+		18B9C0921C98251C00D9892E /* MASlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASlipView.m; sourceTree = "<group>"; };
+		18B9C0931C98251C00D9892E /* EFAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFAnimationViewController.h; path = ../view/EFAnimationViewController.h; sourceTree = "<group>"; };
+		18B9C0941C98251C00D9892E /* EFAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFAnimationViewController.m; path = ../view/EFAnimationViewController.m; sourceTree = "<group>"; };
+		18B9C0991C98266B00D9892E /* MAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAProfileViewController.h; sourceTree = "<group>"; };
+		18B9C09A1C98266B00D9892E /* MAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAProfileViewController.m; sourceTree = "<group>"; };
+		18B9C09B1C98266B00D9892E /* MATwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MATwoViewController.h; sourceTree = "<group>"; };
+		18B9C09C1C98266B00D9892E /* MATwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MATwoViewController.m; sourceTree = "<group>"; };
+		18B9C09D1C98266B00D9892E /* MAThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAThreeViewController.h; sourceTree = "<group>"; };
+		18B9C09E1C98266B00D9892E /* MAThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAThreeViewController.m; sourceTree = "<group>"; };
+		18B9C09F1C98266B00D9892E /* MAFourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAFourViewController.h; sourceTree = "<group>"; };
+		18B9C0A01C98266B00D9892E /* MAFourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAFourViewController.m; sourceTree = "<group>"; };
+		18B9C0A11C98266B00D9892E /* MAFiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAFiveViewController.h; sourceTree = "<group>"; };
+		18B9C0A21C98266B00D9892E /* MAFiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAFiveViewController.m; sourceTree = "<group>"; };
 		18F3ABDA1C90052C00EEC043 /* MaClearCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaClearCache.h; sourceTree = "<group>"; };
 		18F3ABDB1C90052C00EEC043 /* MaClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaClearCache.m; sourceTree = "<group>"; };
 		18F3ABE01C900F5900EEC043 /* MaMyCamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaMyCamer.h; sourceTree = "<group>"; };
@@ -670,6 +692,9 @@
 		18F871CE1C8EB0360092E09C /* MaParames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaParames.h; sourceTree = "<group>"; };
 		18F871CF1C8EB0360092E09C /* MaParames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaParames.m; sourceTree = "<group>"; };
 		18F871D11C8EB16B0092E09C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		66EF7EBF7EE92450D287E2F2 /* libPods-My108day.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My108day.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F50F9A26071C023EADB7A58 /* Pods-My108day.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My108day.release.xcconfig"; path = "Pods/Target Support Files/Pods-My108day/Pods-My108day.release.xcconfig"; sourceTree = "<group>"; };
+		FD1A757213E22752949E5287 /* Pods-My108day.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My108day.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My108day/Pods-My108day.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +705,7 @@
 				18F871D21C8EB16B0092E09C /* libsqlite3.0.tbd in Frameworks */,
 				18591C321C8E93D100D35DE5 /* AVFoundation.framework in Frameworks */,
 				1827C9671C883F130059C167 /* UIKit.framework in Frameworks */,
+				40BFC0A34206E93B6F541EEF /* libPods-My108day.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +775,9 @@
 			children = (
 				18016DBB1C896D480042DA06 /* MaDiscoverTableViewController.h */,
 				18016DBC1C896D480042DA06 /* MaDiscoverTableViewController.m */,
+				18B9C0931C98251C00D9892E /* EFAnimationViewController.h */,
+				18B9C0941C98251C00D9892E /* EFAnimationViewController.m */,
+				18B9C0A81C98267400D9892E /* jumpView */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -763,6 +792,8 @@
 		18016DBE1C896D480042DA06 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				18B9C0911C98251C00D9892E /* MASlipView.h */,
+				18B9C0921C98251C00D9892E /* MASlipView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1056,6 +1087,8 @@
 				1827C9661C883F130059C167 /* UIKit.framework */,
 				183AC67D1C88282C00093FC9 /* My108day */,
 				183AC67C1C88282C00093FC9 /* Products */,
+				921E80F68505651C8DA5D32C /* Pods */,
+				6B6CEDEF79C342335402A474 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1441,6 +1474,23 @@
 			path = newFeature;
 			sourceTree = "<group>";
 		};
+		18B9C0A81C98267400D9892E /* jumpView */ = {
+			isa = PBXGroup;
+			children = (
+				18B9C0991C98266B00D9892E /* MAProfileViewController.h */,
+				18B9C09A1C98266B00D9892E /* MAProfileViewController.m */,
+				18B9C09B1C98266B00D9892E /* MATwoViewController.h */,
+				18B9C09C1C98266B00D9892E /* MATwoViewController.m */,
+				18B9C09D1C98266B00D9892E /* MAThreeViewController.h */,
+				18B9C09E1C98266B00D9892E /* MAThreeViewController.m */,
+				18B9C09F1C98266B00D9892E /* MAFourViewController.h */,
+				18B9C0A01C98266B00D9892E /* MAFourViewController.m */,
+				18B9C0A11C98266B00D9892E /* MAFiveViewController.h */,
+				18B9C0A21C98266B00D9892E /* MAFiveViewController.m */,
+			);
+			name = jumpView;
+			sourceTree = "<group>";
+		};
 		18F871991C8EA90B0092E09C /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -1493,6 +1543,23 @@
 			path = MJPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		6B6CEDEF79C342335402A474 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66EF7EBF7EE92450D287E2F2 /* libPods-My108day.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		921E80F68505651C8DA5D32C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD1A757213E22752949E5287 /* Pods-My108day.debug.xcconfig */,
+				8F50F9A26071C023EADB7A58 /* Pods-My108day.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1500,9 +1567,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 183AC6921C88282C00093FC9 /* Build configuration list for PBXNativeTarget "My108day" */;
 			buildPhases = (
+				50BFFF28671784976FE83DA5 /* Check Pods Manifest.lock */,
 				183AC6771C88282C00093FC9 /* Sources */,
 				183AC6781C88282C00093FC9 /* Frameworks */,
 				183AC6791C88282C00093FC9 /* Resources */,
+				B14858EC26E173F17931CE1C /* Embed Pods Frameworks */,
+				BDDDE89ABE1A0D7683E911B7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1730,6 +1800,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50BFFF28671784976FE83DA5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B14858EC26E173F17931CE1C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My108day/Pods-My108day-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDDDE89ABE1A0D7683E911B7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My108day/Pods-My108day-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		183AC6771C88282C00093FC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1742,6 +1860,7 @@
 				185EA7011C898255007247B7 /* MJType.m in Sources */,
 				18591C571C8EA0E900D35DE5 /* NSArray+MASAdditions.m in Sources */,
 				185EA75C1C89C022007247B7 /* UIImageView+WebCache.m in Sources */,
+				18B9C0A51C98266B00D9892E /* MAThreeViewController.m in Sources */,
 				185EA7541C89C022007247B7 /* SDWebImageDownloaderOperation.m in Sources */,
 				18F871C61C8EA9230092E09C /* MJPhotoLoadingView.m in Sources */,
 				18591C511C8EA0E900D35DE5 /* MASCompositeConstraint.m in Sources */,
@@ -1749,6 +1868,7 @@
 				185EA6E41C897175007247B7 /* AFURLConnectionOperation.m in Sources */,
 				18F871A61C8EA90B0092E09C /* FMDatabaseAdditions.m in Sources */,
 				185EA75A1C89C022007247B7 /* UIImage+WebP.m in Sources */,
+				18B9C0981C98251C00D9892E /* EFAnimationViewController.m in Sources */,
 				185EA7201C8990A3007247B7 /* UIScrollView+MJExtension.m in Sources */,
 				18591C551C8EA0E900D35DE5 /* MASViewAttribute.m in Sources */,
 				18F871C71C8EA9230092E09C /* MJPhotoProgressView.m in Sources */,
@@ -1780,6 +1900,7 @@
 				185EA7591C89C022007247B7 /* UIImage+MultiFormat.m in Sources */,
 				185EA74E1C89C022007247B7 /* MKAnnotationView+WebCache.m in Sources */,
 				185EA6E31C897175007247B7 /* AFSecurityPolicy.m in Sources */,
+				18B9C0A41C98266B00D9892E /* MATwoViewController.m in Sources */,
 				185EA6B81C896E70007247B7 /* MaTabBarController.m in Sources */,
 				18016DEE1C896DA40042DA06 /* MaOAuthViewController.m in Sources */,
 				18F871A71C8EA90B0092E09C /* FMDatabasePool.m in Sources */,
@@ -1792,12 +1913,14 @@
 				185EA75D1C89C022007247B7 /* UIView+WebCacheOperation.m in Sources */,
 				185EA6C91C896EC6007247B7 /* UIView+Frame.m in Sources */,
 				185EA7551C89C022007247B7 /* SDWebImageManager.m in Sources */,
+				18B9C0971C98251C00D9892E /* MASlipView.m in Sources */,
 				18016DEA1C896D480042DA06 /* MaCollectionViewCell.m in Sources */,
 				18F871C31C8EA9230092E09C /* MJPhoto.m in Sources */,
 				18016DE91C896D480042DA06 /* MaNewFeatureViewController.m in Sources */,
 				185EA7291C89BC86007247B7 /* CZPhoto.m in Sources */,
 				18F871D01C8EB0360092E09C /* MaParames.m in Sources */,
 				18919FFD1C8A8806001208C9 /* MaToolView.m in Sources */,
+				18B9C0A71C98266B00D9892E /* MAFiveViewController.m in Sources */,
 				18016DE41C896D480042DA06 /* MaActiveTableViewController.m in Sources */,
 				18F871C51C8EA9230092E09C /* MJPhotoBrowser.m in Sources */,
 				18591C351C8E9C3B00D35DE5 /* MaCameraViewController.m in Sources */,
@@ -1828,9 +1951,11 @@
 				18F3ABE21C900F5900EEC043 /* MaMyCamer.m in Sources */,
 				185EA6C01C896EB8007247B7 /* MaNavigationViewController.m in Sources */,
 				185EA6EA1C897F26007247B7 /* MaAccount.m in Sources */,
+				18B9C0A31C98266B00D9892E /* MAProfileViewController.m in Sources */,
 				18F3ABDC1C90052C00EEC043 /* MaClearCache.m in Sources */,
 				185EA7031C898255007247B7 /* NSObject+MJIvar.m in Sources */,
 				1891A0001C8A960C001208C9 /* MaStatuesFrame.m in Sources */,
+				18B9C0A61C98266B00D9892E /* MAFourViewController.m in Sources */,
 				18919FFA1C8A87CB001208C9 /* MaRetView.m in Sources */,
 				185EA7081C898434007247B7 /* MaChooseRootViewController.m in Sources */,
 			);
@@ -1932,6 +2057,7 @@
 		};
 		183AC6931C88282C00093FC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD1A757213E22752949E5287 /* Pods-My108day.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -1946,6 +2072,7 @@
 		};
 		183AC6941C88282C00093FC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F50F9A26071C023EADB7A58 /* Pods-My108day.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";

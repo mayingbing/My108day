@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		18016DE41C896D480042DA06 /* MaActiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18016DB61C896D480042DA06 /* MaActiveTableViewController.m */; };
 		18016DE51C896D480042DA06 /* MaDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18016DBC1C896D480042DA06 /* MaDiscoverTableViewController.m */; };
-		18016DE61C896D480042DA06 /* MaChooseCityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18016DC21C896D480042DA06 /* MaChooseCityTableViewController.m */; };
 		18016DE71C896D480042DA06 /* MaHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18016DC41C896D480042DA06 /* MaHomeTableViewController.m */; };
 		18016DE81C896D480042DA06 /* CZTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18016DC81C896D480042DA06 /* CZTitleButton.m */; };
 		18016DE91C896D480042DA06 /* MaNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18016DD01C896D480042DA06 /* MaNewFeatureViewController.m */; };
@@ -29,8 +28,6 @@
 		183AC68E1C88282C00093FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183AC68C1C88282C00093FC9 /* LaunchScreen.storyboard */; };
 		18591C301C8E7A8900D35DE5 /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18591C2F1C8E7A8900D35DE5 /* NSDate+MJ.m */; };
 		18591C321C8E93D100D35DE5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18591C311C8E93D100D35DE5 /* AVFoundation.framework */; };
-		18591C351C8E9C3B00D35DE5 /* MaCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18591C341C8E9C3B00D35DE5 /* MaCameraViewController.m */; };
-		18591C381C8E9FB300D35DE5 /* ScanBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18591C371C8E9FB300D35DE5 /* ScanBackgroundView.m */; };
 		18591C511C8EA0E900D35DE5 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 18591C3B1C8EA0E900D35DE5 /* MASCompositeConstraint.m */; };
 		18591C521C8EA0E900D35DE5 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 18591C3E1C8EA0E900D35DE5 /* MASConstraint.m */; };
 		18591C531C8EA0E900D35DE5 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 18591C401C8EA0E900D35DE5 /* MASConstraintMaker.m */; };
@@ -102,6 +99,11 @@
 		1867A7BF1C90667900BC4AF8 /* ff_IconQRCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1867A7B91C90667900BC4AF8 /* ff_IconQRCode@2x.png */; };
 		1867A7C01C90667900BC4AF8 /* ff_IconQRCode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1867A7BA1C90667900BC4AF8 /* ff_IconQRCode@3x.png */; };
 		1867A7C11C90667900BC4AF8 /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 1867A7BB1C90667900BC4AF8 /* light.png */; };
+		18687C771C9AC0F100D477B3 /* MaCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18687C6D1C9AC0F100D477B3 /* MaCameraViewController.m */; };
+		18687C781C9AC0F100D477B3 /* MaChooseCityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18687C6F1C9AC0F100D477B3 /* MaChooseCityTableViewController.m */; };
+		18687C791C9AC0F100D477B3 /* MaMyCamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18687C711C9AC0F100D477B3 /* MaMyCamer.m */; };
+		18687C7A1C9AC0F100D477B3 /* ScanBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18687C731C9AC0F100D477B3 /* ScanBackgroundView.m */; };
+		18687C7B1C9AC0F100D477B3 /* MaWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18687C761C9AC0F100D477B3 /* MaWebViewController.m */; };
 		186AC2271C892D2800B48012 /* active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186AC1901C892D2800B48012 /* active@2x.png */; };
 		186AC2281C892D2800B48012 /* active_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186AC1911C892D2800B48012 /* active_h@2x.png */; };
 		186AC2291C892D2800B48012 /* active_nav_right_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186AC1921C892D2800B48012 /* active_nav_right_btn@2x.png */; };
@@ -269,7 +271,6 @@
 		18B9C0A61C98266B00D9892E /* MAFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C0A01C98266B00D9892E /* MAFourViewController.m */; };
 		18B9C0A71C98266B00D9892E /* MAFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B9C0A21C98266B00D9892E /* MAFiveViewController.m */; };
 		18F3ABDC1C90052C00EEC043 /* MaClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3ABDB1C90052C00EEC043 /* MaClearCache.m */; };
-		18F3ABE21C900F5900EEC043 /* MaMyCamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3ABE11C900F5900EEC043 /* MaMyCamer.m */; };
 		18F871A51C8EA90B0092E09C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F8719B1C8EA90B0092E09C /* FMDatabase.m */; };
 		18F871A61C8EA90B0092E09C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F8719D1C8EA90B0092E09C /* FMDatabaseAdditions.m */; };
 		18F871A71C8EA90B0092E09C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F8719F1C8EA90B0092E09C /* FMDatabasePool.m */; };
@@ -297,8 +298,6 @@
 		18016DB61C896D480042DA06 /* MaActiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaActiveTableViewController.m; sourceTree = "<group>"; };
 		18016DBB1C896D480042DA06 /* MaDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaDiscoverTableViewController.h; sourceTree = "<group>"; };
 		18016DBC1C896D480042DA06 /* MaDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaDiscoverTableViewController.m; sourceTree = "<group>"; };
-		18016DC11C896D480042DA06 /* MaChooseCityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaChooseCityTableViewController.h; sourceTree = "<group>"; };
-		18016DC21C896D480042DA06 /* MaChooseCityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaChooseCityTableViewController.m; sourceTree = "<group>"; };
 		18016DC31C896D480042DA06 /* MaHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaHomeTableViewController.h; sourceTree = "<group>"; };
 		18016DC41C896D480042DA06 /* MaHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaHomeTableViewController.m; sourceTree = "<group>"; };
 		18016DC71C896D480042DA06 /* CZTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZTitleButton.h; sourceTree = "<group>"; };
@@ -327,10 +326,6 @@
 		18591C2E1C8E7A8900D35DE5 /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MJ.h"; sourceTree = "<group>"; };
 		18591C2F1C8E7A8900D35DE5 /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MJ.m"; sourceTree = "<group>"; };
 		18591C311C8E93D100D35DE5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		18591C331C8E9C3B00D35DE5 /* MaCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaCameraViewController.h; sourceTree = "<group>"; };
-		18591C341C8E9C3B00D35DE5 /* MaCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaCameraViewController.m; sourceTree = "<group>"; };
-		18591C361C8E9FB300D35DE5 /* ScanBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanBackgroundView.h; sourceTree = "<group>"; };
-		18591C371C8E9FB300D35DE5 /* ScanBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanBackgroundView.m; sourceTree = "<group>"; };
 		18591C3A1C8EA0E900D35DE5 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		18591C3B1C8EA0E900D35DE5 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		18591C3C1C8EA0E900D35DE5 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -475,6 +470,16 @@
 		1867A7B91C90667900BC4AF8 /* ff_IconQRCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ff_IconQRCode@2x.png"; sourceTree = "<group>"; };
 		1867A7BA1C90667900BC4AF8 /* ff_IconQRCode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ff_IconQRCode@3x.png"; sourceTree = "<group>"; };
 		1867A7BB1C90667900BC4AF8 /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
+		18687C6C1C9AC0F100D477B3 /* MaCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaCameraViewController.h; sourceTree = "<group>"; };
+		18687C6D1C9AC0F100D477B3 /* MaCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaCameraViewController.m; sourceTree = "<group>"; };
+		18687C6E1C9AC0F100D477B3 /* MaChooseCityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaChooseCityTableViewController.h; sourceTree = "<group>"; };
+		18687C6F1C9AC0F100D477B3 /* MaChooseCityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaChooseCityTableViewController.m; sourceTree = "<group>"; };
+		18687C701C9AC0F100D477B3 /* MaMyCamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaMyCamer.h; sourceTree = "<group>"; };
+		18687C711C9AC0F100D477B3 /* MaMyCamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaMyCamer.m; sourceTree = "<group>"; };
+		18687C721C9AC0F100D477B3 /* ScanBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanBackgroundView.h; sourceTree = "<group>"; };
+		18687C731C9AC0F100D477B3 /* ScanBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanBackgroundView.m; sourceTree = "<group>"; };
+		18687C751C9AC0F100D477B3 /* MaWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaWebViewController.h; sourceTree = "<group>"; };
+		18687C761C9AC0F100D477B3 /* MaWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaWebViewController.m; sourceTree = "<group>"; };
 		186AC1901C892D2800B48012 /* active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active@2x.png"; sourceTree = "<group>"; };
 		186AC1911C892D2800B48012 /* active_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_h@2x.png"; sourceTree = "<group>"; };
 		186AC1921C892D2800B48012 /* active_nav_right_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_nav_right_btn@2x.png"; sourceTree = "<group>"; };
@@ -654,8 +659,6 @@
 		18B9C0A21C98266B00D9892E /* MAFiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAFiveViewController.m; sourceTree = "<group>"; };
 		18F3ABDA1C90052C00EEC043 /* MaClearCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaClearCache.h; sourceTree = "<group>"; };
 		18F3ABDB1C90052C00EEC043 /* MaClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaClearCache.m; sourceTree = "<group>"; };
-		18F3ABE01C900F5900EEC043 /* MaMyCamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaMyCamer.h; sourceTree = "<group>"; };
-		18F3ABE11C900F5900EEC043 /* MaMyCamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaMyCamer.m; sourceTree = "<group>"; };
 		18F8719A1C8EA90B0092E09C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		18F8719B1C8EA90B0092E09C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		18F8719C1C8EA90B0092E09C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -801,6 +804,7 @@
 		18016DBF1C896D480042DA06 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				18687C6B1C9AC0F100D477B3 /* zhushou */,
 				18016DC01C896D480042DA06 /* controller */,
 				18016DC51C896D480042DA06 /* model */,
 				18016DC61C896D480042DA06 /* view */,
@@ -811,16 +815,8 @@
 		18016DC01C896D480042DA06 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				18016DC11C896D480042DA06 /* MaChooseCityTableViewController.h */,
-				18016DC21C896D480042DA06 /* MaChooseCityTableViewController.m */,
 				18016DC31C896D480042DA06 /* MaHomeTableViewController.h */,
 				18016DC41C896D480042DA06 /* MaHomeTableViewController.m */,
-				18591C331C8E9C3B00D35DE5 /* MaCameraViewController.h */,
-				18591C341C8E9C3B00D35DE5 /* MaCameraViewController.m */,
-				18591C361C8E9FB300D35DE5 /* ScanBackgroundView.h */,
-				18591C371C8E9FB300D35DE5 /* ScanBackgroundView.m */,
-				18F3ABE01C900F5900EEC043 /* MaMyCamer.h */,
-				18F3ABE11C900F5900EEC043 /* MaMyCamer.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1304,6 +1300,31 @@
 				1867A7BB1C90667900BC4AF8 /* light.png */,
 			);
 			path = "个人助手";
+			sourceTree = "<group>";
+		};
+		18687C6B1C9AC0F100D477B3 /* zhushou */ = {
+			isa = PBXGroup;
+			children = (
+				18687C6C1C9AC0F100D477B3 /* MaCameraViewController.h */,
+				18687C6D1C9AC0F100D477B3 /* MaCameraViewController.m */,
+				18687C6E1C9AC0F100D477B3 /* MaChooseCityTableViewController.h */,
+				18687C6F1C9AC0F100D477B3 /* MaChooseCityTableViewController.m */,
+				18687C701C9AC0F100D477B3 /* MaMyCamer.h */,
+				18687C711C9AC0F100D477B3 /* MaMyCamer.m */,
+				18687C721C9AC0F100D477B3 /* ScanBackgroundView.h */,
+				18687C731C9AC0F100D477B3 /* ScanBackgroundView.m */,
+				18687C741C9AC0F100D477B3 /* web */,
+			);
+			path = zhushou;
+			sourceTree = "<group>";
+		};
+		18687C741C9AC0F100D477B3 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				18687C751C9AC0F100D477B3 /* MaWebViewController.h */,
+				18687C761C9AC0F100D477B3 /* MaWebViewController.m */,
+			);
+			path = web;
 			sourceTree = "<group>";
 		};
 		186AC18F1C892D2800B48012 /* img */ = {
@@ -1864,6 +1885,7 @@
 				185EA7541C89C022007247B7 /* SDWebImageDownloaderOperation.m in Sources */,
 				18F871C61C8EA9230092E09C /* MJPhotoLoadingView.m in Sources */,
 				18591C511C8EA0E900D35DE5 /* MASCompositeConstraint.m in Sources */,
+				18687C7A1C9AC0F100D477B3 /* ScanBackgroundView.m in Sources */,
 				185EA6E71C897175007247B7 /* AFURLSessionManager.m in Sources */,
 				185EA6E41C897175007247B7 /* AFURLConnectionOperation.m in Sources */,
 				18F871A61C8EA90B0092E09C /* FMDatabaseAdditions.m in Sources */,
@@ -1883,29 +1905,31 @@
 				185EA6BC1C896EA9007247B7 /* AppDelegate.m in Sources */,
 				18F871C91C8EA9230092E09C /* MJPhotoView.m in Sources */,
 				185EA71C1C8990A3007247B7 /* MJRefreshBaseView.m in Sources */,
+				18687C781C9AC0F100D477B3 /* MaChooseCityTableViewController.m in Sources */,
 				185EA6E11C897175007247B7 /* AFHTTPSessionManager.m in Sources */,
 				185EA7521C89C022007247B7 /* SDWebImageDecoder.m in Sources */,
 				185EA7601C89CA58007247B7 /* MaTableViewCell.m in Sources */,
+				18687C7B1C9AC0F100D477B3 /* MaWebViewController.m in Sources */,
 				185EA6ED1C8980F2007247B7 /* MaAccountTool.m in Sources */,
 				185EA75B1C89C022007247B7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				185EA6E21C897175007247B7 /* AFNetworkReachabilityManager.m in Sources */,
 				18591C301C8E7A8900D35DE5 /* NSDate+MJ.m in Sources */,
 				18016DE71C896D480042DA06 /* MaHomeTableViewController.m in Sources */,
 				18016DE51C896D480042DA06 /* MaDiscoverTableViewController.m in Sources */,
+				18687C771C9AC0F100D477B3 /* MaCameraViewController.m in Sources */,
 				18591C531C8EA0E900D35DE5 /* MASConstraintMaker.m in Sources */,
 				185EA72A1C89BC86007247B7 /* CZStatus.m in Sources */,
 				185EA6C81C896EC6007247B7 /* UIImage+rendWithOriginal.m in Sources */,
-				18016DE61C896D480042DA06 /* MaChooseCityTableViewController.m in Sources */,
 				18F871B21C8EA9160092E09C /* MBProgressHUD.m in Sources */,
 				185EA7591C89C022007247B7 /* UIImage+MultiFormat.m in Sources */,
 				185EA74E1C89C022007247B7 /* MKAnnotationView+WebCache.m in Sources */,
 				185EA6E31C897175007247B7 /* AFSecurityPolicy.m in Sources */,
 				18B9C0A41C98266B00D9892E /* MATwoViewController.m in Sources */,
 				185EA6B81C896E70007247B7 /* MaTabBarController.m in Sources */,
+				18687C791C9AC0F100D477B3 /* MaMyCamer.m in Sources */,
 				18016DEE1C896DA40042DA06 /* MaOAuthViewController.m in Sources */,
 				18F871A71C8EA90B0092E09C /* FMDatabasePool.m in Sources */,
 				185EA7581C89C022007247B7 /* UIImage+GIF.m in Sources */,
-				18591C381C8E9FB300D35DE5 /* ScanBackgroundView.m in Sources */,
 				18919FF71C8A8727001208C9 /* MaOriginalView.m in Sources */,
 				18016DE81C896D480042DA06 /* CZTitleButton.m in Sources */,
 				185EA6E01C897175007247B7 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -1923,7 +1947,6 @@
 				18B9C0A71C98266B00D9892E /* MAFiveViewController.m in Sources */,
 				18016DE41C896D480042DA06 /* MaActiveTableViewController.m in Sources */,
 				18F871C51C8EA9230092E09C /* MJPhotoBrowser.m in Sources */,
-				18591C351C8E9C3B00D35DE5 /* MaCameraViewController.m in Sources */,
 				185EA71F1C8990A3007247B7 /* MJRefreshHeaderView.m in Sources */,
 				185EA6BD1C896EA9007247B7 /* main.m in Sources */,
 				185EA6C71C896EC6007247B7 /* UIBarButtonItem+MaBarButtonItem.m in Sources */,
@@ -1948,7 +1971,6 @@
 				185EA6E61C897175007247B7 /* AFURLResponseSerialization.m in Sources */,
 				18591C541C8EA0E900D35DE5 /* MASLayoutConstraint.m in Sources */,
 				185EA7531C89C022007247B7 /* SDWebImageDownloader.m in Sources */,
-				18F3ABE21C900F5900EEC043 /* MaMyCamer.m in Sources */,
 				185EA6C01C896EB8007247B7 /* MaNavigationViewController.m in Sources */,
 				185EA6EA1C897F26007247B7 /* MaAccount.m in Sources */,
 				18B9C0A31C98266B00D9892E /* MAProfileViewController.m in Sources */,

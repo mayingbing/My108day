@@ -14,10 +14,14 @@
 #import "MaClearCache.h"
 #import "UIImageView+WebCache.h"
 #import "MaMyCamer.h"
+#import "MaWebViewController.h"
 
 
 @interface MaChooseCityTableViewController ()
+
 @property(nonatomic ,weak)UIButton *lightBtn;
+@property(nonatomic ,strong)NSString *webString;
+
 @end
 
 @implementation MaChooseCityTableViewController
@@ -94,11 +98,12 @@
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"本次清理垃圾" message:[NSString stringWithFormat:@"%gK",fileSize] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                
+                
             }];
             [alertController addAction:okAction];
             [self presentViewController:alertController animated:YES completion:nil];
-            
-            
             
         });
     };
@@ -142,8 +147,14 @@
     MaCameraViewController *scanCodeViewController = [[MaCameraViewController alloc]init];
     scanCodeViewController.sucessScanBlock = ^(NSString *result) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            _webString = result;
+            
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"二维码扫描结果" message:result preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                [self loadWebViewWith:(NSString *)result];
+                
             }];
             [alertController addAction:okAction];
             [self presentViewController:alertController animated:YES completion:nil];
@@ -151,6 +162,13 @@
     };
     [self.navigationController pushViewController:scanCodeViewController animated:YES];
 
+    
+}
+
+-(void)loadWebViewWith:(NSString *)result{
+    
+    MaWebViewController *webVc = [MaWebViewController initWebWithNSString:result];
+    [self.navigationController pushViewController:webVc animated:YES];
     
 }
 

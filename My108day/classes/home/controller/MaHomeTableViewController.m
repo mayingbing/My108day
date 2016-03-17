@@ -47,7 +47,7 @@ static NSString *ID = @"cell";
    
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.leftBarButtonItem = left;
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    //[self.navigationController popToRootViewControllerAnimated:YES];
     
     [btn setTitle:@"个人助手" forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"home_city_location_img@2x"] forState:UIControlStateNormal];
@@ -84,6 +84,9 @@ static NSString *ID = @"cell";
         
         // 刷新表格
         [self.tableView reloadData];
+        // 结束上拉刷新
+        [self.tableView headerEndRefreshing];
+
         
     } failure:^(NSArray *statusF) {
         
@@ -94,9 +97,10 @@ static NSString *ID = @"cell";
             // 刷新表格
             [self.tableView reloadData];
         }
+        // 结束上拉刷新
+        [self.tableView headerEndRefreshing];
+
     }];
-    // 结束上拉刷新
-    [self.tableView headerEndRefreshing];
     
 }
 
@@ -120,7 +124,8 @@ static NSString *ID = @"cell";
         
         // 刷新表格
         [self.tableView reloadData];
-        
+        // 结束上拉刷新
+        [self.tableView footerEndRefreshing];
         
     } failure:^(NSMutableArray *statusF) {
         if (!self.statuesFrameDataArr.count) {
@@ -130,11 +135,11 @@ static NSString *ID = @"cell";
             // 刷新表格
             [self.tableView reloadData];
         }
-        
+        // 结束上拉刷新
+        [self.tableView footerEndRefreshing];
+
     }];
-    // 结束上拉刷新
-    [self.tableView footerEndRefreshing];
-}
+    }
 
 -(void)chooseCity{
     

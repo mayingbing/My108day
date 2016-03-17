@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MASlipViewDelegate <NSObject>
+
+@optional
+
+-(void)MASlipViewTouchWithBtn:(UIButton *)btn;
+
+@end
+
+
+
 @interface MASlipView : UIView
 
+@property(nonatomic ,weak)id<MASlipViewDelegate> delegate;
 
 -(instancetype)initWithViewController:(UIViewController *)vc;
 -(void)show;

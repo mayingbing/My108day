@@ -8,11 +8,12 @@
 
 #import "MASlipView.h"
 
+
 @interface MASlipView ()
 
 @property (nonatomic ,assign)BOOL isOpen;
-@property (nonatomic ,weak)UIViewController *vc;
 
+@property (nonatomic ,weak)UIViewController *vc;
 @end
 
 
@@ -22,7 +23,7 @@
     _vc = vc;
     CGRect slipFrame = CGRectMake(-150, 0, 150,vc.view.frame.size.height);
     self = [super initWithFrame:slipFrame];
-    self.backgroundColor = [UIColor grayColor];
+    self.backgroundColor = [UIColor lightGrayColor];
     _isOpen = NO;
     
     UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(show)];
@@ -74,8 +75,8 @@
     
     NSArray *imgArr = [NSArray array];
     NSArray *textArr = [NSArray array];
-    imgArr = @[@"profile",@"yx",@"zszk",@"gzjy",@"grpj"];
-    textArr = @[@"个人简介",@"求职意向",@"知识状况",@"工作经验",@"自我评价"];
+    imgArr = @[@"profile",@"yx",@"zszk",@"gzjy"];
+    textArr = @[@"项目简介",@"微博项目",@"108day",@"简历"];
     
     for (int i = 0; i<imgArr.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -84,7 +85,7 @@
         [btn setTitle:textArr[i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
-        float btnY = 70 + i *(self.bounds.size.height-108)/imgArr.count;
+        float btnY = 100 + i *(self.bounds.size.height-100)/imgArr.count;
         
         btn.frame = CGRectMake(0, btnY, 130, 35);
         btn.tag = i;
@@ -92,11 +93,18 @@
         
         [self addSubview:btn];
     }
+    
+    
+    
 }
+
+
 
 -(void)btnClick:(UIButton *)btn{
     
-    
+    if ([self.delegate respondsToSelector:@selector(MASlipViewTouchWithBtn:)]) {
+        [self.delegate MASlipViewTouchWithBtn:btn];
+    }
     
 }
 

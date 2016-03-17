@@ -7,11 +7,14 @@
 //
 
 #import "EFAnimationViewController.h"
-#import "MAProfileViewController.h"
+#import "MAOneViewController.h"
 #import "MATwoViewController.h"
 #import "MAThreeViewController.h"
 #import "MAFourViewController.h"
 #import "MAFiveViewController.h"
+#import "MATextTableViewCell.h"
+
+#import "MAFirstGroundViewController.h"
 
 #define RADIUS 100.0
 #define PHOTONUM 5
@@ -29,6 +32,13 @@ NSInteger array [PHOTONUM][PHOTONUM] = {
 @interface EFAnimationViewController ()<EFItemViewDelegate>
 
 @property (nonatomic, assign) NSInteger currentTag;
+@property (nonatomic ,strong) MAOneViewController *one;
+@property (nonatomic ,strong) MATwoViewController *two;
+@property (nonatomic ,strong) MAThreeViewController *three;
+@property (nonatomic ,strong) MAFourViewController *four;
+@property (nonatomic ,strong) MAFiveViewController *five;
+
+
 
 @end
 
@@ -36,9 +46,25 @@ NSInteger array [PHOTONUM][PHOTONUM] = {
 
 CATransform3D rotationTransform1[PHOTONUM];
 
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    MAOneViewController *one = [[MAOneViewController alloc]init];
+    _one = one;
+    
+    MATwoViewController *two = [[MATwoViewController alloc]init];
+    _two = two;
+    MAThreeViewController *three = [[MAThreeViewController alloc]init];
+    _three = three;
+    MAFourViewController *four = [[MAFourViewController alloc]init];
+    _four = four;
+    MAFiveViewController *five = [[MAFiveViewController alloc]init];
+    _five = five;
+    
+    
+    
     
     [self configViews];
 }
@@ -60,6 +86,8 @@ CATransform3D rotationTransform1[PHOTONUM];
         CGFloat tmpx =	centerx - RADIUS*sin(2.0*M_PI *i/PHOTONUM);
         EFItemView *view = [[EFItemView alloc]initWithNormalImage:dataArray[i] highlightedImage:nil tag:TAGSTART+i title:textArr[i]];
         view.titleLabel.font = [UIFont systemFontOfSize:15];
+        
+        
         [view sizeToFit];
         
         
@@ -111,31 +139,27 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 
 -(void)jumpView:(NSInteger)index{
-    MAProfileViewController *profileVc = [[MAProfileViewController alloc]init];
-    MATwoViewController *two = [[MATwoViewController alloc]init];
-    MAThreeViewController *three = [[MAThreeViewController alloc]init];
-    MAFourViewController *four = [[MAFourViewController alloc]init];
-    MAFiveViewController *five = [[MAFiveViewController alloc]init];
+    
     
     switch (index) {
-        case 1000:
-            [self.navigationController pushViewController:profileVc animated:YES];
+        case 1000:{
+            [self.navigationController pushViewController:_one animated:YES];
             
-            break;
+        }break;
         case 1001:
-            [self.navigationController pushViewController:two animated:YES];
+            [self.navigationController pushViewController:_two animated:YES];
             
             break;
         case 1002:
-            [self.navigationController pushViewController:three animated:YES];
+            [self.navigationController pushViewController:_three animated:YES];
             
             break;
         case 1003:
-            [self.navigationController pushViewController:four animated:YES];
+            [self.navigationController pushViewController:_four animated:YES];
             
             break;
         case 1004:
-            [self.navigationController pushViewController:five animated:YES];
+            [self.navigationController pushViewController:_five animated:YES];
             
             break;
         default:

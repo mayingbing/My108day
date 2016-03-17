@@ -6,8 +6,8 @@
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MAFirstGroundViewController.h"
 
-@interface MAFiveViewController : UITableViewController
+@interface MAFiveViewController : MAFirstGroundViewController
 
 @end

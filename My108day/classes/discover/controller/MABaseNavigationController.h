@@ -1,5 +1,5 @@
 //
-//  MAProfileViewController.h
+//  MABaseNavigationController.h
 //  简历
 //
 //  Created by apple on 16/3/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MAProfileViewController : UITableViewController
+@interface MABaseNavigationController : UINavigationController
 
 @end

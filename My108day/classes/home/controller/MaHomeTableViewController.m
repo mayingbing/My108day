@@ -25,6 +25,7 @@
 @interface MaHomeTableViewController ()<UITableViewDataSource>
 
 @property (nonatomic ,strong) NSMutableArray *objArr;
+//@property (nonatomic ,assign)CGFloat cellHeight;
 @end
 
 @implementation MaHomeTableViewController
@@ -162,12 +163,13 @@ static NSString *ID = @"cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MaTableViewCell *cell = [MaTableViewCell cellWithTableView:tableView];
+    [cell layoutSubviews];
 
-
-    CZStatus *statues = self.objArr[indexPath.row];
+//    CZStatus *statues = self.objArr[indexPath.row];
+//    
+//    
+//    cell.statues = statues;
     
-    
-    cell.statues = statues;
 
     return cell;
     
@@ -178,9 +180,9 @@ static NSString *ID = @"cell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    MaStatuesFrame *statusF = self.statuesFrameDataArr[indexPath.row];
-//    return statusF.cellHeight;
-    return 260;
+    MaTableViewCell *statues = self.objArr[indexPath.row];
+
+    return 200;
 }
 
 

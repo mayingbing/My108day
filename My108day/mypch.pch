@@ -14,12 +14,15 @@
 
 #define CZStatusCellMargin 10
 #define CZNameFont [UIFont systemFontOfSize:15]
-#define CZTimeFont [UIFont systemFontOfSize:15]
+#define CZTimeFont [UIFont systemFontOfSize:13]
 #define CZSourceFont CZTimeFont
 #define CZTextFont [UIFont systemFontOfSize:15]
 #define CZScreenW [UIScreen mainScreen].bounds.size.width
 
 #define mypch_pch
 
-
+#import <Masonry.h>
+#import <UIColor+Expanded.h>
+#import <ReactiveCocoa.h>
+#import "UIImageView+WebCache.h"
 #endif /* mypch_pch */

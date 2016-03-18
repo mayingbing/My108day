@@ -1,18 +1,31 @@
 PODS:
-  - ReactiveCocoa (2.0):
-    - ReactiveCocoa/Core (= 2.0)
-    - ReactiveCocoa/no-arc (= 2.0)
-    - ReactiveCocoa/RACExtensions (= 2.0)
-  - ReactiveCocoa/Core (2.0):
+  - FrameAccessor (1.3.2)
+  - Masonry (0.6.2)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
     - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.0)
-  - ReactiveCocoa/RACExtensions (2.0):
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - TPKeyboardAvoiding (1.2.8)
+  - TTTAttributedLabel (1.13.3)
+  - UIColor-Utilities (1.0.1)
 
 DEPENDENCIES:
-  - ReactiveCocoa (= 2.0)
+  - FrameAccessor (= 1.3.2)
+  - Masonry (= 0.6.2)
+  - ReactiveCocoa (= 2.5)
+  - TPKeyboardAvoiding (= 1.2.8)
+  - TTTAttributedLabel (= 1.13.3)
+  - UIColor-Utilities (= 1.0.1)
 
 SPEC CHECKSUMS:
-  ReactiveCocoa: c5347d7b1c348d22a85800e14e89da84c5254cfb
+  FrameAccessor: 0f7ba6ce37be9a5d0302a27c731dca70af8d438b
+  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  TPKeyboardAvoiding: f1ef0028fe9ba98ef2871cf55b4bbc39cae0267b
+  TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
+  UIColor-Utilities: 6746a54dcdb3bc012dd7aeaeea5588ae2100beb2
 
 COCOAPODS: 0.39.0

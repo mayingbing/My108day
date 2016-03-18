@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class IWStatusParam;
+@class MaParames;
 @interface IWStatusCacheTool : NSObject
 
 + (void)saveWithStatuses:(NSArray *)dictArr;
 
-+ (NSArray *)statusesWithParam:(IWStatusParam *)param;
++ (NSArray *)statusesWithParam:(MaParames *)param;
 
 @end

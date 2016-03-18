@@ -12,7 +12,7 @@
 #import "MaAccountTool.h"
 #import "CZStatus.h"
 #import "IWStatusCacheTool.h"
-#import "MaStatuesFrame.h"
+
 #import "MaParames.h"
 
 
@@ -41,15 +41,8 @@
         NSArray *dictArr = responseObject[@"statuses"];
         NSArray *objArr = [CZStatus objectArrayWithKeyValuesArray:dictArr];
         
-        NSMutableArray *arrM = [NSMutableArray array];
-        for (CZStatus *status in objArr) {
-            MaStatuesFrame *statusF = [[MaStatuesFrame alloc] init];
-            statusF.status = status;
-            [arrM addObject:statusF];
-        }
-
         if (success) {
-            success(arrM);
+            success(objArr);
         }
         
     } failure:^(NSError *error) {
@@ -58,13 +51,7 @@
         NSArray *statuses =  [IWStatusCacheTool statusesWithParam:param];
         if (statuses.count) {
             
-            NSMutableArray *arrM = [NSMutableArray array];
-            for (CZStatus *status in statuses) {
-                MaStatuesFrame *statusF = [[MaStatuesFrame alloc] init];
-                statusF.status = status;
-                [arrM addObject:statusF];
-            }
-            failure(arrM);
+            failure(statuses);
             // 不需要在发送请求
             return;
             
@@ -85,23 +72,15 @@
     
     // 加载更多缓存数据
     NSArray *statuses =  [IWStatusCacheTool statusesWithParam:param];
-    if (statuses.count) {
-        
-        NSMutableArray *arrM = [NSMutableArray array];
-        for (CZStatus *status in statuses) {
-            MaStatuesFrame *statusF = [[MaStatuesFrame alloc] init];
-            statusF.status = status;
-            [arrM addObject:statusF];
-        }
+
         if (!success) {
             
-            failure(arrM);
+            failure(statuses);
             // 不需要在发送请求
             return;
             
         }
         
-    }
     
     
     MaHttpTool *http = [[MaHttpTool alloc]init];
@@ -118,15 +97,9 @@
         NSArray *dictArr = responseObject[@"statuses"];
         NSArray *objArr = [CZStatus objectArrayWithKeyValuesArray:dictArr];
         
-        NSMutableArray *arrM = [NSMutableArray array];
-        for (CZStatus *status in objArr) {
-            MaStatuesFrame *statusF = [[MaStatuesFrame alloc] init];
-            statusF.status = status;
-            [arrM addObject:statusF];
-        }
         
         if (success) {
-            success(arrM);
+            success(objArr);
         }
         
     } failure:^(NSError *error) {
@@ -134,13 +107,7 @@
         NSArray *statuses =  [IWStatusCacheTool statusesWithParam:param];
         if (statuses.count) {
             
-            NSMutableArray *arrM = [NSMutableArray array];
-            for (CZStatus *status in statuses) {
-                MaStatuesFrame *statusF = [[MaStatuesFrame alloc] init];
-                statusF.status = status;
-                [arrM addObject:statusF];
-            }
-            failure(arrM);
+            failure(statuses);
             // 不需要在发送请求
             return;
             

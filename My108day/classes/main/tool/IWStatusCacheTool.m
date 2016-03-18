@@ -12,7 +12,7 @@
 
 #import "MaAccount.h"
 #import "MaAccountTool.h"
-#import "MaStatuesFrame.h"
+
 #import "MJExtension.h"
 #import "CZStatus.h"
 #define IWStatusFile [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"status.sqlite"]

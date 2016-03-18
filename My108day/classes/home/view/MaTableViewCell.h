@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MaStatuesFrame;
 
+@class CZStatus;
 @interface MaTableViewCell : UITableViewCell
 
-@property(nonatomic ,strong)MaStatuesFrame *statusF;
+@property (nonatomic ,strong)CZStatus *statues;
 
 +(MaTableViewCell *)cellWithTableView:(UITableView *)tableView;
 

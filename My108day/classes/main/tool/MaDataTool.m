@@ -14,11 +14,13 @@
 #import "IWStatusCacheTool.h"
 
 #import "MaParames.h"
+#import "MaStatuesFrame.h"
+
 
 
 @implementation MaDataTool
 
--(void)GETMoreData:(NSString *)urlStr WithID:(id)ID  success:(void (^)(NSArray *))success failure:(void (^)(NSArray *))failure {
+-(void)GETMoreData:(NSString *)urlStr WithID:(id)ID  success:(void (^)(NSArray *))success failure:(void (^)(NSMutableArray *))failure{
     
  
     // 拼接参数
@@ -40,18 +42,37 @@
         // 获取微博字典数组
         NSArray *dictArr = responseObject[@"statuses"];
         NSArray *objArr = [CZStatus objectArrayWithKeyValuesArray:dictArr];
-        
+        NSMutableArray *statuesFArr = [NSMutableArray array];
+        if (objArr.count) {
+            
+            for (CZStatus *statues in objArr) {
+                if ([statues isKindOfClass:[CZStatus class]]) {
+                    MaStatuesFrame *statuesF = [[MaStatuesFrame alloc]init];
+                    statuesF.statues = statues;
+                    [statuesFArr addObject:statuesF];
+                }
+            }
+        }
         if (success) {
-            success(objArr);
+            success(statuesFArr);
         }
         
     } failure:^(NSError *error) {
         
         // 加载更多缓存数据
-        NSArray *statuses =  [IWStatusCacheTool statusesWithParam:param];
-        if (statuses.count) {
+        NSArray *objArr =  [IWStatusCacheTool statusesWithParam:param];
+        if (objArr.count) {
+            NSMutableArray *statuesFArr = [NSMutableArray array];
             
-            failure(statuses);
+                for (CZStatus *statues in objArr) {
+                    if ([statues isKindOfClass:[CZStatus class]]) {
+                        MaStatuesFrame *statuesF = [[MaStatuesFrame alloc]init];
+                        statuesF.statues = statues;
+                        [statuesFArr addObject:statuesF];
+                    }
+                }
+            
+            failure(statuesFArr);
             // 不需要在发送请求
             return;
             
@@ -71,11 +92,24 @@
     param.since_id = ID;
     
     // 加载更多缓存数据
-    NSArray *statuses =  [IWStatusCacheTool statusesWithParam:param];
+    NSArray *objArr =  [IWStatusCacheTool statusesWithParam:param];
 
         if (!success) {
             
-            failure(statuses);
+            NSMutableArray *statuesFArr = [NSMutableArray array];
+            if (objArr.count) {
+                
+                for (CZStatus *statues in objArr) {
+                    if ([statues isKindOfClass:[CZStatus class]]) {
+                        MaStatuesFrame *statuesF = [[MaStatuesFrame alloc]init];
+                        statuesF.statues = statues;
+                        [statuesFArr addObject:statuesF];
+                    }
+                }
+            }
+
+            
+            failure(statuesFArr);
             // 不需要在发送请求
             return;
             
@@ -97,17 +131,36 @@
         NSArray *dictArr = responseObject[@"statuses"];
         NSArray *objArr = [CZStatus objectArrayWithKeyValuesArray:dictArr];
         
-        
+        NSMutableArray *statuesFArr = [NSMutableArray array];
+        if (objArr.count) {
+            
+            for (CZStatus *statues in objArr) {
+                if ([statues isKindOfClass:[CZStatus class]]) {
+                    MaStatuesFrame *statuesF = [[MaStatuesFrame alloc]init];
+                    statuesF.statues = statues;
+                    [statuesFArr addObject:statuesF];
+                }
+            }
+        }
+
         if (success) {
-            success(objArr);
+            success(statuesFArr);
         }
         
     } failure:^(NSError *error) {
         // 加载更多缓存数据
-        NSArray *statuses =  [IWStatusCacheTool statusesWithParam:param];
-        if (statuses.count) {
+        NSArray *objArr =  [IWStatusCacheTool statusesWithParam:param];
+        if (objArr.count) {
+            NSMutableArray *statuesFArr = [NSMutableArray array];
+                for (CZStatus *statues in objArr) {
+                    if ([statues isKindOfClass:[CZStatus class]]) {
+                        MaStatuesFrame *statuesF = [[MaStatuesFrame alloc]init];
+                        statuesF.statues = statues;
+                        [statuesFArr addObject:statuesF];
+                    }
+                }
             
-            failure(statuses);
+            failure(statuesFArr);
             // 不需要在发送请求
             return;
             

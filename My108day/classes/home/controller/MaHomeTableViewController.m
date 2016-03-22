@@ -19,12 +19,14 @@
 #import "UIImageView+WebCache.h"
 #import "MaHttpTool.h"
 #import "MaDataTool.h"
-#import "MaTableViewCell.h"
+#import "MaHomeTableViewCell.h"
+#import "MaStatuesFrame.h"
+
 
 
 @interface MaHomeTableViewController ()<UITableViewDataSource>
 
-@property (nonatomic ,strong) NSMutableArray *objArr;
+@property (nonatomic ,strong) NSMutableArray *statuesFArr;
 //@property (nonatomic ,assign)CGFloat cellHeight;
 @end
 
@@ -32,11 +34,11 @@
 
 static NSString *ID = @"cell";
 
--(NSMutableArray *)objArr{
-    if (_objArr == nil) {
-        _objArr = [NSMutableArray array];
+-(NSMutableArray *)statuesFArr{
+    if (_statuesFArr == nil) {
+        _statuesFArr = [NSMutableArray array];
     }
-    return _objArr;
+    return _statuesFArr;
 }
 
 - (void)viewDidLoad {
@@ -71,18 +73,18 @@ static NSString *ID = @"cell";
     
     MaDataTool *data = [[MaDataTool alloc]init];
     id sinceID = nil;
-    if (self.objArr.count) {
+    if (self.statuesFArr.count) {
         
-        sinceID = [self.objArr[0] idstr];
+        sinceID = [[self.statuesFArr[0] statues] idstr];
     }
     
-    [data GETNewData:@"https://api.weibo.com/2/statuses/friends_timeline.json"  WithID:sinceID success:^(NSArray *statuesArr) {
+    [data GETNewData:@"https://api.weibo.com/2/statuses/friends_timeline.json"  WithID:sinceID success:^(NSArray *statuesFArr) {
         // httpTool请求成功的时候调用，把代码保存起来
         
-        NSIndexSet *index = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuesArr.count)];
+        NSIndexSet *index = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuesFArr.count)];
         
         
-        [self.objArr insertObjects:statuesArr atIndexes:index];
+        [self.statuesFArr insertObjects:statuesFArr atIndexes:index];
 
         
         
@@ -92,11 +94,11 @@ static NSString *ID = @"cell";
         [self.tableView headerEndRefreshing];
 
         
-    } failure:^(NSArray *statuesArr) {
+    } failure:^(NSArray *statuesFArr) {
         
-        if (!self.objArr.count){
+        if (!self.statuesFArr.count){
             
-            [self.objArr addObjectsFromArray:statuesArr];
+            [self.statuesFArr addObjectsFromArray:statuesFArr];
             
             // 刷新表格
             [self.tableView reloadData];
@@ -115,26 +117,26 @@ static NSString *ID = @"cell";
     MaDataTool *data = [[MaDataTool alloc]init];
     
     id maxID = nil;
-    if (self.objArr.count) {
+    if (self.statuesFArr.count) {
         
-        maxID= @([[[self.objArr lastObject] idstr] longLongValue]-1);
+        maxID= @([[[[self.statuesFArr lastObject] statues] idstr] longLongValue]-1);
         
     }
     
     [data GETMoreData:@"https://api.weibo.com/2/statuses/friends_timeline.json" WithID:maxID success:^(NSArray *statuesArr) {
         // httpTool请求成功的时候调用，把代码保存起来
         
-        [self.objArr addObjectsFromArray:statuesArr];
+        [self.statuesFArr addObjectsFromArray:statuesArr];
         
         // 刷新表格
         [self.tableView reloadData];
         // 结束上拉刷新
         [self.tableView footerEndRefreshing];
         
-    } failure:^(NSMutableArray *status) {
-        if (!self.objArr.count) {
+    } failure:^(NSMutableArray *statuesFArr) {
+        if (!self.statuesFArr.count) {
             
-            [self.objArr addObjectsFromArray:status];
+            [self.statuesFArr addObjectsFromArray:statuesFArr];
             
             // 刷新表格
             [self.tableView reloadData];
@@ -156,20 +158,20 @@ static NSString *ID = @"cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.objArr.count;
+    return self.statuesFArr.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MaTableViewCell *cell = [MaTableViewCell cellWithTableView:tableView];
+    MaHomeTableViewCell *cell = [MaHomeTableViewCell cellWithTableView:tableView];
     [cell layoutSubviews];
 
-//    CZStatus *statues = self.objArr[indexPath.row];
-//    
-//    
-//    cell.statues = statues;
+    MaStatuesFrame *statuesF = self.statuesFArr[indexPath.row];
     
+    cell.statuesF = statuesF;
+    
+    [cell layoutIfNeeded];
 
     return cell;
     
@@ -180,9 +182,10 @@ static NSString *ID = @"cell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    MaTableViewCell *statues = self.objArr[indexPath.row];
+    MaStatuesFrame *statuesF = self.statuesFArr[indexPath.row];
+    
 
-    return 200;
+    return statuesF.cellHeight;
 }
 
 
